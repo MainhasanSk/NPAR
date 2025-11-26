@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Terms & Conditions - NPAR Interiors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f06595;
+            --accent-color: #ffb3c1;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --white: #ffffff;
+            --light-bg: #fff5f7;
+            --success-color: #4CAF50;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+       
+
+        /* Page Header */
+        .page-header {
+            margin-top: 100px;
+            padding: 4rem 0 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .warranty-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        /* Warranty Content */
+        .warranty-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .warranty-intro {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+            margin-bottom: 3rem;
+            text-align: center;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .warranty-intro h2 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .warranty-intro p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* Warranty Sections */
+        .warranty-section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .warranty-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(255, 107, 107, 0.25);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-icon i {
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .section-header h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .warranty-section h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .warranty-section p {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .warranty-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .warranty-section ul li {
+            padding: 0.7rem 0 0.7rem 2rem;
+            position: relative;
+            color: var(--text-dark);
+            line-height: 1.8;
+            border-bottom: 1px solid var(--light-bg);
+        }
+
+        .warranty-section ul li:last-child {
+            border-bottom: none;
+        }
+
+        .warranty-section ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .exclusion-item::before {
+            content: '\f00d' !important;
+            color: #e74c3c !important;
+        }
+
+        /* Duration Table */
+        .duration-table {
+            width: 100%;
+            margin: 1.5rem 0;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .duration-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .duration-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--light-bg);
+        }
+
+        .duration-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .duration-table tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .process-step {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .process-step:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            background: var(--white);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step p {
+            color: var(--text-dark);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Important Note */
+        .important-note {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(240, 101, 149, 0.1));
+            border-left: 5px solid var(--primary-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+
+        .important-note h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .important-note p {
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .warranty-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .warranty-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .warranty-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--white);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .warranty-section {
+                padding: 1.5rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <link rel="stylesheet"href="navandfooter.css">
+</head>
+<body>
+    <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+       <div class="logo">
+    <img src="npr-logo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#solutions">Solutions</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="service.html">Services</a></li>
+            <li><a href="javascript:void(0)" class="cta-btn" onclick="openContactPopup()">Contact Us</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="warranty-badge">
+                <i class="fas fa-shield-alt"></i> UP TO 10 YEARS
+            </div>
+            <h1>Warranty Terms & Conditions</h1>
+            <p>NPAR Interiors - Your Trust, Our Commitment</p>
+        </div>
+    </div>
+
+    <!-- Warranty Content -->
+    <div class="warranty-container">
+        <!-- Intro -->
+        <div class="warranty-intro">
+            <h2>Comprehensive Warranty Protection</h2>
+            <p>NPAR Interiors provides warranty on modular furniture and interior products supplied and installed by us. We stand behind the quality of our work with comprehensive coverage for your peace of mind.</p>
+        </div>
+
+        <!-- Section 1: Warranty Coverage -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>1. Warranty Coverage</h3>
+            </div>
+
+            <h4>1.1 Manufacturing Defects</h4>
+            <ul>
+                <li>Structural defects in cabinets, shutters, and carcass materials</li>
+                <li>Issues arising from manufacturing or assembly defects</li>
+                <li>Factory faults in plywood, WPC boards, laminates, and edge banding</li>
+            </ul>
+
+            <h4>1.2 Hardware & Accessories</h4>
+            <p>Covers defects in:</p>
+            <ul>
+                <li>Hinges, channels, drawer systems</li>
+                <li>Locks, lift-up mechanisms, handles</li>
+                <li>Connectors and other modular hardware</li>
+            </ul>
+            <p style="margin-top: 1rem; font-style: italic;">(As per the brand's warranty, up to 10 years.)</p>
+
+            <h4>1.3 Termite & Borer Protection</h4>
+            <ul>
+                <li>Applicable only on Full modular products with WPC boards, HDHMR boards/MDF board</li>
+                <li>Termite-resistant materials used in carcass</li>
+                <li>Coverage: Up to 10 years, depending on material type</li>
+            </ul>
+
+            <h4>1.4 Modular Products</h4>
+            <p>Warranty covers all modular:</p>
+            <ul>
+                <li>Kitchens</li>
+                <li>Wardrobes</li>
+                <li>TV units</li>
+                <li>Loft storage</li>
+                <li>Cabinets and other factory-finished units</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Warranty Exclusions -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-times-circle"></i>
+                </div>
+                <h3>2. Warranty Exclusions</h3>
+            </div>
+            <p>The warranty does not cover:</p>
+            <ul>
+                <li class="exclusion-item">Damage caused by misuse, rough handling, or overloading</li>
+                <li class="exclusion-item">Water leakage from sink, plumbing, or civil dampness</li>
+                <li class="exclusion-item">Issues due to wall seepage, moisture absorption, or building defects</li>
+                <li class="exclusion-item">Normal wear & tear, ageing, colour fading, laminate peeling</li>
+                <li class="exclusion-item">Electrical appliances and lights (covered by respective brands)</li>
+                <li class="exclusion-item">Glass, mirrors, countertop (granite/quartz) breakage</li>
+                <li class="exclusion-item">Pest damage caused by rats, cockroaches, etc.</li>
+                <li class="exclusion-item">Damage due to fire, flood, accidents, natural disasters</li>
+                <li class="exclusion-item">Repairs or modifications done by third parties or customers</li>
+                <li class="exclusion-item">Improper cleaning chemicals, harsh usage, or physical impact</li>
+            </ul>
+        </div>
+
+        <!-- Section 3: Warranty Duration -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>3. Warranty Duration</h3>
+            </div>
+            <p>NPAR Interiors offers warranty up to a maximum of 10 years as below:</p>
+            
+            <table class="duration-table">
+                <thead>
+                    <tr>
+                        <th>Product/Component</th>
+                        <th>Warranty Period</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Modular Carcass (WPC / BWP / BWR Plywood)</td>
+                        <td><strong>10 Years</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Shutters & Panels (Laminate / Acrylic / PU)</td>
+                        <td><strong>5 Years</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Hardware (Hinges, Channels, Locks)</td>
+                        <td><strong>Up to 10 Years</strong><br><small>(as per manufacturer's warranty)</small></td>
+                    </tr>
+                    <tr>
+                        <td>Termite Protection (on termite-resistant boards)</td>
+                        <td><strong>Up to 10 Years</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 4: Warranty Claim Process -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                </div>
+                <h3>4. Warranty Claim Process</h3>
+            </div>
+            <p>To claim warranty, customer must:</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <p>Provide invoice and photos/videos of the issue</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <p>Allow inspection by NPAR Interiors' technical team</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <p>Approve service visit schedule</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <p>Free repair/replacement if covered</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <p>Labour and material charges apply if not covered</p>
+                </div>
+            </div>
+
+            <div class="important-note">
+                <h4><i class="fas fa-info-circle"></i> Important Note</h4>
+                <p>Replacement will be done only for defective parts, not full units.</p>
+            </div>
+        </div>
+
+        <!-- Section 5: Service Conditions -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>5. Service Conditions</h3>
+            </div>
+            <ul>
+                <li>Colour/finish variations may occur due to batch changes</li>
+                <li>Warranty applies only to products designed, supplied, and installed by NPAR Interiors</li>
+                <li>Warranty is non-transferable</li>
+                <li>Customer must maintain proper ventilation and avoid water contact with wooden units</li>
+            </ul>
+        </div>
+
+        <!-- Section 6: Customer Responsibilities -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <h3>6. Customer Responsibilities</h3>
+            </div>
+            <p>Customer must ensure:</p>
+            <ul>
+                <li>No water seepage or continuous moisture exposure</li>
+                <li>Proper load management—do not overload shelves/drawers</li>
+                <li>Avoid external drilling, modifications, or unauthorized repairs</li>
+                <li>Regular basic cleaning and maintenance</li>
+            </ul>
+        </div>
+
+        <!-- Section 7: Final Decision -->
+        <div class="warranty-section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3>7. Final Decision</h3>
+            </div>
+            <div class="important-note">
+                <h4><i class="fas fa-exclamation-triangle"></i> Authority</h4>
+                <p>NPAR Interiors will make the final decision based on inspection and warranty policy. Our technical team's assessment is binding for all warranty claims.</p>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="warranty-cta">
+            <h3>Have Questions About Warranty?</h3>
+            <p>Our team is here to help you understand our warranty coverage better</p>
+            <a href="https://wa.me/916000739059?text=Hello%20NPAR%20Interiors!%20I%20have%20questions%20about%20the%20warranty." target="_blank" class="cta-btn">
+                <i class="fab fa-whatsapp"></i>
+                Contact Us on WhatsApp
+            </a>
+        </div>
+    </div>
+
+      <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-about">
+                              <div class="logo">
+    <img src="NparLogo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+         
+                <h3>NPAR Interiors</h3>
+                <p>Transform your space with our expert interior design services. We create beautiful, functional spaces that reflect your unique style and personality.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=100087824420693" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/npar_interiors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon"><i class="fab fa-instagram"></i></a>
+        
+                    <a href="https://in.pinterest.com/nparinteriors/" class="social-icon"><i class="fab fa-pinterest"></i></a>
+
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="service.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#modular-kitchen"><i class="fas fa-angle-right"></i> Modular Kitchen</a></li>
+                    <li><a href="#bedroom-design"><i class="fas fa-angle-right"></i> Bedroom Design</a></li>
+                    <li><a href="#office-interior"><i class="fas fa-angle-right"></i> Office Interior</a></li>
+                    <li><a href="#paint"><i class="fas fa-angle-right"></i> Paint Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>GMC Ward Number 44 ,Nayanpur<br>Guwahati Assam, 781006</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+916000739059">+91 60007-39059</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:nparinteriors@gmail.com">nparinteriors@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 NPAR Interiors. All rights reserved. | Designed & Developed by <a href="https://junakdigital.com/">Junak Digital Dynamics</a></p>
+        </div>
+    </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

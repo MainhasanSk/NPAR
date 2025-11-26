@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - NPAR Interiors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+   <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    :root {
+        --primary-color: #ff6b6b;
+        --secondary-color: #f06595;
+        --accent-color: #ffb3c1;
+        --text-dark: #1a1a1a;
+        --text-light: #666;
+        --white: #ffffff;
+        --light-bg: #fff5f7;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background: var(--white);
+    }
+    
+    h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+        margin-top: 90px;
+        position: relative;
+        height: 500px;
+        background: 
+                    url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600') center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--white);
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 900px;
+        padding: 0 2rem;
+        animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-content h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+    }
+
+    .experience-badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+    }
+
+    /* ABOUT CONTENT */
+    .about-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+    }
+
+    .section-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 5rem;
+    }
+
+    .section-intro h2 {
+        font-size: 3rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 1rem;
+    }
+
+    .divider {
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        margin: 1rem auto 2rem;
+    }
+
+    .section-intro p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        line-height: 1.9;
+    }
+
+    /* Values Grid */
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .value-card {
+        background: var(--light-bg);
+        padding: 2.5rem;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.4s ease;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+        animation: cardFadeIn 0.6s ease backwards;
+    }
+
+    .value-card:nth-child(1) { animation-delay: 0.1s; }
+    .value-card:nth-child(2) { animation-delay: 0.2s; }
+    .value-card:nth-child(3) { animation-delay: 0.3s; }
+    .value-card:nth-child(4) { animation-delay: 0.4s; }
+    .value-card:nth-child(5) { animation-delay: 0.5s; }
+    .value-card:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes cardFadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .value-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    }
+
+    .value-icon i {
+        font-size: 2.5rem;
+        color: var(--white);
+    }
+
+    .value-card h3 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .value-card p {
+        color: var(--text-light);
+        line-height: 1.8;
+        font-size: 1rem;
+    }
+
+    /* Stats */
+    .stats-section {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        padding: 4rem 2rem;
+        color: var(--white);
+    }
+
+    .stats-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+        font-size: 1.2rem;
+        opacity: 0.95;
+    }
+
+    /* CTA */
+    .cta-section {
+        max-width: 1000px;
+        margin: 5rem auto;
+        padding: 0 2rem;
+        text-align: center;
+    }
+
+    .cta-content {
+        background: var(--light-bg);
+        padding: 4rem 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+    }
+
+    .cta-content h2 {
+        font-size: 2.5rem;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .cta-content p {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cta-btn {
+        padding: 1.2rem 2.5rem;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+    }
+
+    .cta-primary {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--white);
+    }
+
+    .cta-secondary {
+        background: var(--white);
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+        }
+        .section-intro h2 {
+            font-size: 2rem;
+        }
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+        .stats-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .cta-buttons {
+            flex-direction: column;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+     <link rel="stylesheet"href="navandfooter.css">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+       <div class="logo">
+           <img src="npr-logo.png" class="logo-image">
+       </div>
+       <ul class="nav-links" id="navLinks">
+           <li><a href="index.html">Home</a></li>
+           <li><a href="index.html#solutions">Solutions</a></li>
+            <li><a href="service.html">Services</a></li>
+           <li><a href="#">About Us</a></li>
+            <li><a href="warranty.html">Warranty</a></li>
+           <li><a class="cta-btn" onclick="openContactPopup()">Contact Us</a></li>
+       </ul>
+       <div class="menu-toggle" id="menuToggle">
+           <span></span><span></span><span></span>
+       </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>About NPAR Interiors</h1>
+            <p>Transforming Spaces, Elevating Lifestyles</p>
+            <div class="experience-badge">
+                <i class="fas fa-award"></i> 12+ Years of Excellence
+            </div>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="section-intro">
+            <h2>Who We Are</h2>
+            <div class="divider"></div>
+            <p>Crafting luxurious and budget-friendly interiors for the past 12 years. At NPAR Interiors, we transform spaces with quality, creativity, and precision.</p>
+        </div>
+
+        <!-- Values Grid -->
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-ruler-combined"></i>
+                </div>
+                <h3>Smart Space Planning</h3>
+                <p>Smart space planning, elegant design, and flawless execution—your dream space, delivered.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <h3>Expert Craftsmanship</h3>
+                <p>Where thoughtful design meets expert craftsmanship to create exceptional interiors.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Lifestyle Elevation</h3>
+                <p>We design interiors that elevate lifestyles and bring lasting comfort to your spaces.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation & Passion</h3>
+                <p>Experience interiors built with passion, innovation, and 12+ years of excellence.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>Beauty & Satisfaction</h3>
+                <p>Every space deserves beauty—every client deserves satisfaction. That's our promise.</p>
+            </div>
+
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Built to Last</h3>
+                <p>Designed to inspire. Built to last. Perfected for you and your loved ones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1000+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Customer Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Let's bring your vision to life with our expertise and dedication</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/916000739059?text=Hello%20NPAR%20Interiors!%20I%20would%20like%20to%20discuss%20my%20project." target="_blank" class="cta-btn cta-primary">
+                    <i class="fab fa-whatsapp"></i> Connect on WhatsApp
+                </a>
+                <a href="service.html" class="cta-btn cta-secondary">
+                    <i class="fas fa-th"></i> View Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+      <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-about">
+                              <div class="logo">
+    <img src="NparLogo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+         
+                <h3>NPAR Interiors</h3>
+                <p>Transform your space with our expert interior design services. We create beautiful, functional spaces that reflect your unique style and personality.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=100087824420693" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/npar_interiors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon"><i class="fab fa-instagram"></i></a>
+        
+                    <a href="https://in.pinterest.com/nparinteriors/" class="social-icon"><i class="fab fa-pinterest"></i></a>
+
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="service.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#modular-kitchen"><i class="fas fa-angle-right"></i> Modular Kitchen</a></li>
+                    <li><a href="#bedroom-design"><i class="fas fa-angle-right"></i> Bedroom Design</a></li>
+                    <li><a href="#office-interior"><i class="fas fa-angle-right"></i> Office Interior</a></li>
+                    <li><a href="#paint"><i class="fas fa-angle-right"></i> Paint Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>GMC Ward Number 44 ,Nayanpur<br>Guwahati Assam, 781006</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+916000739059">+91 60007-39059</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:nparinteriors@gmail.com">nparinteriors@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 NPAR Interiors. All rights reserved. | Designed & Developed by <a href="https://junakdigital.com/">Junak Digital Dynamics</a></p>
+        </div>
+    </div>
+</footer>
+<!-- Contact Info Popup -->
+<div class="contact-popup-overlay" id="contactPopupOverlay">
+    <div class="contact-popup-container">
+        <button class="contact-popup-close" onclick="closeContactPopup()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="contact-popup-header">
+            <div class="contact-popup-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h2>Get In Touch</h2>
+            <p>We're here to help bring your vision to life</p>
+        </div>
+        
+        <div class="contact-popup-body">
+            <!-- Phone Number -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon phone-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Call Us</h4>
+                    <a href="tel:+916000739059">+91-60007-39059</a>
+                    <span class="availability">Available 9 AM - 7 PM</span>
+                </div>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>WhatsApp</h4>
+                    <a href="https://wa.me/916000739059"> +91-60007-39059</a>
+                    <span class="availability">Quick Response 24/7</span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon email-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Email Us</h4>
+                    <a href="mailto:info@gamil.com">info@gamil.com</a>
+                    <span class="availability">We reply within 24 hours</span>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon address-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Visit Us</h4>
+                    <p>GMC Ward Number 44<br>
+                    Nayanpur ,Guwahati, 781006<br>
+                    Assam,India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-popup-actions">
+            <a href="tel:+91-6000739059" class="contact-action-btn call-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Now</span>
+            </a>
+            <a href="https://wa.me/916000739059?text=Hello%20NPAR%20Interiors!%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="contact-action-btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</div>
+ <script src="script.js"></script>
+</body>
+</html>

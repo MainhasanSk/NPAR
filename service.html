@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - NPAR Interiors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+ <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #f06595;
+    --accent-color: #ffb3c1;
+    --text-dark: #1a1a1a;
+    --text-light: #666;
+    --white: #ffffff;
+    --light-bg: #fff5f7;
+    --success-color: #4CAF50;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    background: var(--light-bg);
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Page Header */
+.page-header {
+    margin-top: 80px;
+    padding: 4rem 0 3rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--light-bg) 0%, var(--white) 100%);
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    margin: 1rem auto;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+/* Services Container */
+.services-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Top Cards */
+.services-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.service-overview-card {
+    background: var(--white);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.1);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    cursor: pointer;
+    overflow: hidden;
+    animation: cardFadeIn 0.6s ease backwards;
+}
+
+@keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.service-overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.service-overview-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-overview-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(255, 107, 107, 0.25);
+}
+
+.service-icon {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.service-overview-card:hover .service-icon img {
+    transform: scale(1.15);
+}
+
+.service-card-text {
+    padding: 2rem;
+}
+
+.service-card-text h3 {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-card-text p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1.3rem;
+}
+
+.view-details-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-flex;
+    gap: 0.5rem;
+}
+
+/* Detailed Services */
+.detailed-services {
+    margin-top: 5rem;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.service-detail {
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.service-detail.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-detail-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+}
+
+.service-detail-image {
+    height: 500px;
+    overflow: hidden;
+}
+
+.service-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-detail:hover .service-detail-image img {
+    transform: scale(1.1);
+}
+
+.service-detail-text {
+    padding: 3rem;
+}
+
+.service-detail-text h3 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.features-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.features-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--light-bg);
+    display: flex;
+    gap: 1rem;
+}
+
+.features-list li i {
+    color: var(--primary-color);
+}
+
+/* CTA */
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 30px;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: fixed;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scroll-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent-color);
+}
+
+.scroll-dot.active {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .page-header h1 { font-size: 2.5rem; }
+
+    .service-detail-content {
+        grid-template-columns: 1fr !important;
+    }
+
+    .service-detail-image { height: 300px; }
+
+    .service-detail-text h3 { font-size: 2rem; }
+
+    .scroll-indicator { display: none; }
+}
+
+html { scroll-behavior: smooth; }
+</style>
+ <link rel="stylesheet"href="navandfooter.css">
+</head>
+<body>
+    <!-- Navigation -->
+       <nav id="navbar">
+    <div class="nav-container">
+       <div class="logo">
+    <img src="npr-logo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#solutions">Solutions</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="warranty.html">Warranty</a></li>
+            <li><a href="javascript:void(0)" class="cta-btn" onclick="openContactPopup()">Contact Us</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Our Services</h1>
+        <div class="divider"></div>
+        <p>Transform your space with our comprehensive interior design solutions</p>
+    </div>
+
+    <!-- Services Container -->
+    <div class="services-container">
+        <!-- Service Overview Cards - Top Section -->
+        <div class="services-overview">
+            <!-- Service 1 -->
+            <div class="service-overview-card" onclick="scrollToDetail('modular-kitchen')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="Modular Kitchen">
+                </div>
+                <div class="service-card-text">
+                    <h3>Modular Kitchen</h3>
+                    <p>Contemporary kitchens with smart storage and premium finishes</p>
+                    <a href="#modular-kitchen" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-overview-card" onclick="scrollToDetail('custom-furniture')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600" alt="Custom Furniture">
+                </div>
+                <div class="service-card-text">
+                    <h3>Custom Furniture</h3>
+                    <p>Bespoke furniture crafted to perfection for your space</p>
+                    <a href="#custom-furniture" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-overview-card" onclick="scrollToDetail('false-ceiling')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="False Ceiling">
+                </div>
+                <div class="service-card-text">
+                    <h3>False Ceiling</h3>
+                    <p>Stunning ceiling designs with integrated lighting solutions</p>
+                    <a href="#false-ceiling" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-overview-card" onclick="scrollToDetail('complete-interior')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600" alt="Complete Interior">
+                </div>
+                <div class="service-card-text">
+                    <h3>Complete Interior</h3>
+                    <p>End-to-end solutions for entire home transformation</p>
+                    <a href="#complete-interior" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-overview-card" onclick="scrollToDetail('bedroom-design')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600" alt="Bedroom Design">
+                </div>
+                <div class="service-card-text">
+                    <h3>Bedroom Design</h3>
+                    <p>Luxurious bedrooms creating peaceful sanctuaries</p>
+                    <a href="#bedroom-design" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-overview-card" onclick="scrollToDetail('commercial-space')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Commercial Space">
+                </div>
+                <div class="service-card-text">
+                    <h3>Commercial Space</h3>
+                    <p>Professional designs for offices and retail spaces</p>
+                    <a href="#commercial-space" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 7 - NEW -->
+            <div class="service-overview-card" onclick="scrollToDetail('2d-3d-design')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600" alt="2D & 3D Design">
+                </div>
+                <div class="service-card-text">
+                    <h3>2D & 3D Design</h3>
+                    <p>Visualize your dream space before construction begins</p>
+                    <a href="#2d-3d-design" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 8 - NEW -->
+            <div class="service-overview-card" onclick="scrollToDetail('office-interior')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600" alt="Office Interior">
+                </div>
+                <div class="service-card-text">
+                    <h3>Office Interior Designs</h3>
+                    <p>Productive workspaces that inspire innovation and collaboration</p>
+                    <a href="#office-interior" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 9 - NEW -->
+            <div class="service-overview-card" onclick="scrollToDetail('paint')">
+                <div class="service-icon">
+                    <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=600" alt="Paint Services">
+                </div>
+                <div class="service-card-text">
+                    <h3>Paint Services</h3>
+                    <p>Premium painting solutions with expert color consultation</p>
+                    <a href="#paint" class="view-details-link">
+                        View Details <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Services Section -->
+        <div class="detailed-services" id="detailedServices">
+            <div class="section-title">
+                <h2>Detailed Services</h2>
+                <div class="divider"></div>
+                <p style="color: var(--text-light); font-size: 1.1rem;">Explore our comprehensive interior design solutions</p>
+            </div>
+
+            <!-- Service Detail 1 -->
+            <div class="service-detail" id="modular-kitchen">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200" alt="Modular Kitchen">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Modular Kitchen Design</h3>
+                        <p>Transform your cooking space into a modern culinary haven. Our modular kitchen designs combine functionality with aesthetics, creating spaces that inspire culinary creativity. We specialize in creating efficient layouts with premium materials, smart storage solutions, and modern appliances integration.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Custom layouts tailored to your space</li>
+                            <li><i class="fas fa-check-circle"></i> Smart storage solutions for maximum efficiency</li>
+                            <li><i class="fas fa-check-circle"></i> Premium materials and durable finishes</li>
+                            <li><i class="fas fa-check-circle"></i> Seamless appliance integration</li>
+                            <li><i class="fas fa-check-circle"></i> Modern LED lighting solutions</li>
+                            <li><i class="fas fa-check-circle"></i> 5-year comprehensive warranty</li>
+                        </ul>
+                       <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 2 -->
+            <div class="service-detail" id="custom-furniture">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200" alt="Custom Furniture">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Customized Furniture</h3>
+                        <p>Create unique pieces that reflect your personality and complement your space. Our custom furniture service offers unlimited design possibilities, from classic to contemporary styles, all crafted with precision and attention to detail by our skilled artisans.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Unique designs tailored to your style</li>
+                            <li><i class="fas fa-check-circle"></i> Premium hardwood and materials</li>
+                            <li><i class="fas fa-check-circle"></i> Expert craftsmanship and attention to detail</li>
+                            <li><i class="fas fa-check-circle"></i> Wide range of finishes and colors</li>
+                            <li><i class="fas fa-check-circle"></i> Perfect fit for your space</li>
+                            <li><i class="fas fa-check-circle"></i> Eco-friendly and sustainable practices</li>
+                        </ul>
+                        <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 3 -->
+            <div class="service-detail" id="false-ceiling">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200" alt="False Ceiling">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>False Ceiling Design</h3>
+                        <p>Add depth, character, and functionality to your rooms with our innovative false ceiling designs. We integrate lighting, acoustics, and aesthetics to create ceilings that are both beautiful and practical, transforming ordinary rooms into extraordinary spaces.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Contemporary and traditional patterns</li>
+                            <li><i class="fas fa-check-circle"></i> Concealed and accent lighting integration</li>
+                            <li><i class="fas fa-check-circle"></i> Temperature and sound insulation</li>
+                            <li><i class="fas fa-check-circle"></i> Moisture resistant materials</li>
+                            <li><i class="fas fa-check-circle"></i> Easy maintenance and durability</li>
+                            <li><i class="fas fa-check-circle"></i> Cost-effective solutions</li>
+                        </ul>
+                        <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 4 -->
+            <div class="service-detail" id="complete-interior">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200" alt="Complete Interior">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Complete Interior Design</h3>
+                        <p>Experience a complete transformation of your living space with our comprehensive interior design services. We handle everything from concept to completion, ensuring a cohesive and stunning result that exceeds your expectations.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Optimal space planning and flow design</li>
+                            <li><i class="fas fa-check-circle"></i> Curated furniture and decor selection</li>
+                            <li><i class="fas fa-check-circle"></i> Perfect color schemes and palettes</li>
+                            <li><i class="fas fa-check-circle"></i> Ambient and task lighting design</li>
+                            <li><i class="fas fa-check-circle"></i> 3D visualization before execution</li>
+                            <li><i class="fas fa-check-circle"></i> Complete project management</li>
+                        </ul>
+                       <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 5 -->
+            <div class="service-detail" id="bedroom-design">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200" alt="Bedroom Design">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Bedroom Interior Design</h3>
+                        <p>Your bedroom should be a peaceful retreat that reflects your personality. We design bedrooms that combine comfort, functionality, and style, with custom wardrobes, lighting, and decor that create your perfect sanctuary.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Designer beds with storage options</li>
+                            <li><i class="fas fa-check-circle"></i> Walk-in and sliding door wardrobes</li>
+                            <li><i class="fas fa-check-circle"></i> Adjustable mood lighting</li>
+                            <li><i class="fas fa-check-circle"></i> Reading nooks and vanity spaces</li>
+                            <li><i class="fas fa-check-circle"></i> Proper ventilation design</li>
+                            <li><i class="fas fa-check-circle"></i> Smart storage solutions</li>
+                        </ul>
+                       <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 6 -->
+            <div class="service-detail" id="commercial-space">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200" alt="Commercial Space">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Commercial Space Interior</h3>
+                        <p>Create impressive workspaces that reflect your brand identity and enhance productivity. From offices to retail spaces, we design environments that make a lasting impression on clients and inspire your team.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Modern and functional office design</li>
+                            <li><i class="fas fa-check-circle"></i> Attractive retail space layouts</li>
+                            <li><i class="fas fa-check-circle"></i> Collaborative meeting areas</li>
+                            <li><i class="fas fa-check-circle"></i> Smart office technology integration</li>
+                            <li><i class="fas fa-check-circle"></i> Ergonomic and productive designs</li>
+                            <li><i class="fas fa-check-circle"></i> Brand identity reflection</li>
+                        </ul>
+                       <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 7 - NEW -->
+            <div class="service-detail" id="2d-3d-design">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200" alt="2D & 3D Design">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>2D & 3D Design Visualization</h3>
+                        <p>See your dream space before construction begins with our advanced 2D floor plans and photorealistic 3D renderings. We create detailed visualizations that help you make informed decisions and visualize the final outcome with stunning accuracy.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Detailed 2D floor plans and layouts</li>
+                            <li><i class="fas fa-check-circle"></i> Photorealistic 3D renderings</li>
+                            <li><i class="fas fa-check-circle"></i> Virtual walkthroughs and tours</li>
+                            <li><i class="fas fa-check-circle"></i> Multiple design variations</li>
+                            <li><i class="fas fa-check-circle"></i> Material and color visualization</li>
+                            <li><i class="fas fa-check-circle"></i> Quick revision and modifications</li>
+                        </ul>
+                       <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 8 - NEW -->
+            <div class="service-detail" id="office-interior">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200" alt="Office Interior">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Office Interior Designs</h3>
+                        <p>Transform your workspace into a hub of productivity and innovation. Our office interior designs focus on creating ergonomic, functional, and aesthetically pleasing environments that boost employee morale and reflect your company's culture and values.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Ergonomic workstation designs</li>
+                            <li><i class="fas fa-check-circle"></i> Collaborative meeting spaces</li>
+                            <li><i class="fas fa-check-circle"></i> Executive cabin and boardroom design</li>
+                            <li><i class="fas fa-check-circle"></i> Reception and waiting area styling</li>
+                            <li><i class="fas fa-check-circle"></i> Breakout zones and cafeteria design</li>
+                            <li><i class="fas fa-check-circle"></i> Brand identity integration</li>
+                        </ul>
+                       <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Detail 9 - NEW -->
+            <div class="service-detail" id="paint">
+                <div class="service-detail-content">
+                    <div class="service-detail-image">
+                        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200" alt="Paint Services">
+                    </div>
+                    <div class="service-detail-text">
+                        <h3>Premium Paint Services</h3>
+                        <p>Give your walls a fresh new look with our professional painting services. We use premium quality paints and finishes, combined with expert color consultation to create the perfect ambiance. From texture paints to specialty finishes, we deliver flawless results.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check-circle"></i> Expert color consultation and selection</li>
+                            <li><i class="fas fa-check-circle"></i> Premium brand paints (Asian, Berger, Dulux)</li>
+                            <li><i class="fas fa-check-circle"></i> Texture and specialty finishes</li>
+                            <li><i class="fas fa-check-circle"></i> Wall preparation and priming</li>
+                            <li><i class="fas fa-check-circle"></i> Exterior and interior painting</li>
+                            <li><i class="fas fa-check-circle"></i> Eco-friendly low VOC options</li>
+                        </ul>
+                        <a href="javascript:void(0)" class="cta-btn" onclick="sendWhatsApp('Service Name')">
+    <i class="fab fa-whatsapp"></i> Get Free Consultation
+</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-dot" data-section="modular-kitchen"></div>
+        <div class="scroll-dot" data-section="custom-furniture"></div>
+        <div class="scroll-dot" data-section="false-ceiling"></div>
+        <div class="scroll-dot" data-section="complete-interior"></div>
+        <div class="scroll-dot" data-section="bedroom-design"></div>
+        <div class="scroll-dot" data-section="commercial-space"></div>
+        <div class="scroll-dot" data-section="2d-3d-design"></div>
+        <div class="scroll-dot" data-section="office-interior"></div>
+        <div class="scroll-dot" data-section="paint"></div>
+    </div>
+<!--Footer-->
+<!-- Footer -->
+  <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-about">
+                              <div class="logo">
+    <img src="NparLogo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+         
+                <h3>NPAR Interiors</h3>
+                <p>Transform your space with our expert interior design services. We create beautiful, functional spaces that reflect your unique style and personality.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=100087824420693" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/npar_interiors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon"><i class="fab fa-instagram"></i></a>
+        
+                    <a href="https://in.pinterest.com/nparinteriors/" class="social-icon"><i class="fab fa-pinterest"></i></a>
+
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="service.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#modular-kitchen"><i class="fas fa-angle-right"></i> Modular Kitchen</a></li>
+                    <li><a href="#bedroom-design"><i class="fas fa-angle-right"></i> Bedroom Design</a></li>
+                    <li><a href="#office-interior"><i class="fas fa-angle-right"></i> Office Interior</a></li>
+                    <li><a href="#paint"><i class="fas fa-angle-right"></i> Paint Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>GMC Ward Number 44 ,Nayanpur<br>Guwahati Assam, 781006</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+916000739059">+91 60007-39059</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:nparinteriors@gmail.com">nparinteriors@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 NPAR Interiors. All rights reserved. | Designed & Developed by <a href="https://junakdigital.com/">Junak Digital Dynamics</a></p>
+        </div>
+    </div>
+</footer>
+ <!-- Contact Info Popup -->
+<div class="contact-popup-overlay" id="contactPopupOverlay">
+    <div class="contact-popup-container">
+        <button class="contact-popup-close" onclick="closeContactPopup()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="contact-popup-header">
+            <div class="contact-popup-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h2>Get In Touch</h2>
+            <p>We're here to help bring your vision to life</p>
+        </div>
+        
+        <div class="contact-popup-body">
+            <!-- Phone Number -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon phone-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Call Us</h4>
+                    <a href="tel:+916000739059">+91-60007-39059</a>
+                    <span class="availability">Available 9 AM - 7 PM</span>
+                </div>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>WhatsApp</h4>
+                    <a href="https://wa.me/916000739059"> +91-60007-39059</a>
+                    <span class="availability">Quick Response 24/7</span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon email-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Email Us</h4>
+                    <a href="mailto:info@gamil.com">info@gamil.com</a>
+                    <span class="availability">We reply within 24 hours</span>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon address-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Visit Us</h4>
+                    <p>GMC Ward Number 44<br>
+                    Nayanpur ,Guwahati, 781006<br>
+                    Assam,India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-popup-actions">
+            <a href="tel:+91-6000739059" class="contact-action-btn call-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Now</span>
+            </a>
+            <a href="https://wa.me/916000739059?text=Hello%20NPAR%20Interiors!%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="contact-action-btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</div>
+    <script>
+        // Scroll to detail section when card is clicked
+        function scrollToDetail(serviceId) {
+            const element = document.getElementById(serviceId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service detail sections
+        document.querySelectorAll('.service-detail').forEach(detail => {
+            observer.observe(detail);
+        });
+
+        // Scroll indicator dots
+        const scrollDots = document.querySelectorAll('.scroll-dot');
+        const serviceDetails = document.querySelectorAll('.service-detail');
+
+        // Update active dot on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            serviceDetails.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            scrollDots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('data-section') === current) {
+                    dot.classList.add('active');
+                }
+            });
+        });
+
+        // Click on dots to navigate
+        scrollDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const sectionId = dot.getAttribute('data-section');
+                scrollToDetail(sectionId);
+            });
+        });
+
+        // Auto-reveal all services when scrolling past overview cards
+        let hasRevealed = false;
+        window.addEventListener('scroll', () => {
+            const servicesOverview = document.querySelector('.services-overview');
+            const overviewBottom = servicesOverview.offsetTop + servicesOverview.offsetHeight;
+            
+            if (window.scrollY > overviewBottom - 200 && !hasRevealed) {
+                hasRevealed = true;
+                document.querySelectorAll('.service-detail').forEach((detail, index) => {
+                    setTimeout(() => {
+                        detail.classList.add('visible');
+                    }, index * 200);
+                });
+            }
+        });
+
+        // Get Free Consultation
+        // WhatsApp Function
+function sendWhatsApp(serviceName) {
+    const whatsappNumber = '919876543210'; // Replace with your number
+    const message = `*🏠 Service Inquiry - NPAR Interiors*
+
+*Service Interested:* ${serviceName}
+
+Hello! I'm interested in learning more about this service. Please share details about pricing, timeline, and process.
+
+Thank you!`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+}
+
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

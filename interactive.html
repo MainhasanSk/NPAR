@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Design Your Space - NPAR Interiors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f06595;
+            --accent-color: #ffb3c1;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --white: #ffffff;
+            --light-bg: #fff5f7;
+            --success-color: #4CAF50;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .logo-image {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-image {
+            transform: scale(1.05) rotate(2deg);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 100px auto 3rem;
+            padding: 0 2rem;
+        }
+        
+        /* Page Header */
+        .page-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .page-title h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+        }
+        
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 1rem auto;
+        }
+        
+        /* Configurator Layout */
+        .configurator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            min-height: 600px;
+        }
+        
+        /* Left Panel */
+        .config-panel {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .progress-step::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-color);
+            z-index: 0;
+        }
+        
+        .progress-step:first-child::before {
+            left: 50%;
+        }
+        
+        .progress-step:last-child::before {
+            right: 50%;
+        }
+        
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 600;
+            color: var(--white);
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s;
+        }
+        
+        .progress-step.active .step-circle {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .progress-step.completed .step-circle {
+            background: var(--success-color);
+            color: var(--white);
+        }
+        
+        .step-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .progress-step.active .step-label {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Configuration Steps */
+        .config-step {
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        .config-step.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .step-title {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        
+        .step-subtitle {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        /* Option Cards */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .option-card {
+            background: var(--light-bg);
+            border: 3px solid transparent;
+            border-radius: 15px;
+            padding: 2rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.2);
+        }
+        
+        .option-card.selected {
+            border-color: var(--primary-color);
+            background: var(--white);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.25);
+        }
+        
+        .option-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .option-icon {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .option-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .option-card p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Custom Input Section */
+        .custom-input-section {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+            border: 2px dashed var(--accent-color);
+        }
+
+        .custom-input-section h5 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .custom-input-section input,
+        .custom-input-section textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+            margin-bottom: 1rem;
+        }
+
+        .custom-input-section input:focus,
+        .custom-input-section textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+        }
+
+        .custom-input-section textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        /* Checkbox List */
+        .checkbox-list {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .checkbox-item {
+            background: var(--light-bg);
+            padding: 1.2rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .checkbox-item:hover {
+            background: var(--white);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.1);
+        }
+        
+        .checkbox-item.selected {
+            border-color: var(--primary-color);
+            background: var(--white);
+        }
+        
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .checkbox-item.selected .custom-checkbox {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: var(--primary-color);
+        }
+        
+        .custom-checkbox i {
+            color: var(--white);
+            font-size: 0.9rem;
+            display: none;
+        }
+        
+        .checkbox-item.selected .custom-checkbox i {
+            display: block;
+        }
+        
+        .checkbox-content {
+            flex: 1;
+        }
+        
+        .checkbox-content h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+        
+        .checkbox-content p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* Add Custom Feature Button */
+        .add-feature-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .add-feature-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .custom-features-list {
+            margin-top: 1rem;
+        }
+
+        .custom-feature-item {
+            background: var(--white);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid var(--primary-color);
+        }
+
+        .custom-feature-item button {
+            background: transparent;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .custom-feature-item button:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+        
+        /* Color Picker */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .color-option {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            border: 3px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+        }
+        
+        .color-option.selected {
+            border-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 2rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .color-name {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--white);
+            background: rgba(0,0,0,0.5);
+            padding: 0.3rem;
+            font-weight: 600;
+        }
+
+        /* Room Size Input */
+        .size-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-group label i {
+            color: var(--secondary-color);
+        }
+
+        .input-group input {
+            padding: 1rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.2);
+        }
+
+        .size-note {
+            grid-column: 1 / -1;
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .size-note i {
+            color: var(--primary-color);
+        }
+
+        .skip-size-btn {
+            grid-column: 1 / -1;
+            padding: 0.8rem;
+            background: var(--light-bg);
+            color: var(--primary-color);
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .skip-size-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--primary-color);
+        }
+        
+        /* Navigation Buttons */
+        .step-navigation {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-back {
+            background: var(--light-bg);
+            color: var(--primary-color);
+        }
+        
+        .btn-back:hover {
+            background: var(--accent-color);
+        }
+        
+        .btn-next {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+        }
+        
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn-next:disabled {
+            background: var(--accent-color);
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        /* Right Panel - Summary */
+        .summary-panel {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .summary-title {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .summary-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--accent-color);
+        }
+        
+        .summary-section:last-child {
+            border-bottom: none;
+        }
+        
+        .summary-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .summary-value {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .summary-list {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+        
+        .summary-list li {
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .summary-list li i {
+            color: var(--primary-color);
+            font-size: 0.8rem;
+        }
+        
+        .color-preview {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .submit-btn i {
+            font-size: 1.3rem;
+        }
+
+        /* Success Modal */
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-modal.active {
+            display: flex;
+        }
+
+        .success-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--success-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            animation: bounce 1s ease;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .success-icon i {
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .success-content h2 {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .success-content p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .configurator-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .summary-panel {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .options-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .size-inputs {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-image {
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="npr-logo.png" alt="NPAR Interiors" class="logo-image">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="index.html">About Us</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="page-title">
+            <h1>Design Your Dream Space</h1>
+            <div class="divider"></div>
+            <p>Create your perfect interior in just 5 simple steps</p>
+        </div>
+
+        <div class="configurator-wrapper">
+            <!-- Left Panel - Configuration -->
+            <div class="config-panel">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="progress-step active" id="progressStep1">
+                            <div class="step-circle">1</div>
+                            <div class="step-label">Room Type</div>
+                        </div>
+                        <div class="progress-step" id="progressStep2">
+                            <div class="step-circle">2</div>
+                            <div class="step-label">Layout</div>
+                        </div>
+                        <div class="progress-step" id="progressStep3">
+                            <div class="step-circle">3</div>
+                            <div class="step-label">Room Size</div>
+                        </div>
+                        <div class="progress-step" id="progressStep4">
+                            <div class="step-circle">4</div>
+                            <div class="step-label">Features</div>
+                        </div>
+                        <div class="progress-step" id="progressStep5">
+                            <div class="step-circle">5</div>
+                            <div class="step-label">Colors</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 1: Room Type with Custom Input -->
+                <div class="config-step active" id="step1">
+                    <h2 class="step-title">Choose Your Space</h2>
+                    <p class="step-subtitle">Select the room you want to design</p>
+                    
+                    <div class="options-grid">
+                        <div class="option-card" onclick="selectRoom('kitchen')">
+                            <div class="option-icon"><i class="fas fa-utensils"></i></div>
+                            <h4>Kitchen</h4>
+                            <p>Modular design</p>
+                        </div>
+                        <div class="option-card" onclick="selectRoom('living')">
+                            <div class="option-icon"><i class="fas fa-couch"></i></div>
+                            <h4>Living Room</h4>
+                            <p>Comfort zone</p>
+                        </div>
+                        <div class="option-card" onclick="selectRoom('bedroom')">
+                            <div class="option-icon"><i class="fas fa-bed"></i></div>
+                            <h4>Bedroom</h4>
+                            <p>Personal space</p>
+                        </div>
+                        <div class="option-card" onclick="selectRoom('other')">
+                            <div class="option-icon"><i class="fas fa-plus-circle"></i></div>
+                            <h4>Other</h4>
+                            <p>Custom room</p>
+                        </div>
+                    </div>
+
+                    <!-- Custom Room Input -->
+                    <div class="custom-input-section" id="customRoomSection" style="display: none;">
+                        <h5><i class="fas fa-edit"></i> Specify Your Room Type</h5>
+                        <input 
+                            type="text" 
+                            id="customRoomInput" 
+                            placeholder="e.g., Office, Balcony, Bathroom, Study Room..."
+                            oninput="updateCustomRoom()"
+                        >
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn btn-next" onclick="nextStep()" id="nextBtn1" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Layout with Custom Input -->
+                <div class="config-step" id="step2">
+                    <h2 class="step-title">Select Layout Shape</h2>
+                    <p class="step-subtitle">Choose the perfect layout for your space</p>
+                    
+                    <div class="options-grid" id="layoutOptions"></div>
+
+                    <!-- Custom Layout Input -->
+                    <div class="custom-input-section" style="margin-top: 1.5rem;">
+                        <h5><i class="fas fa-edit"></i> Or Describe Your Custom Layout</h5>
+                        <textarea 
+                            id="customLayoutInput" 
+                            placeholder="Describe your preferred layout style..."
+                            oninput="updateCustomLayout()"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn btn-back" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-next" onclick="nextStep()" id="nextBtn2" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Room Size with "I Don't Know" Option -->
+                <div class="config-step" id="step3">
+                    <h2 class="step-title">Enter Room Dimensions</h2>
+                    <p class="step-subtitle">Provide the size of your room</p>
+                    
+                    <div class="size-inputs">
+                        <div class="input-group">
+                            <label>
+                                <i class="fas fa-arrows-alt-h"></i>
+                                Length (in feet)
+                            </label>
+                            <input type="number" id="roomLength" placeholder="e.g., 12" min="1" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <i class="fas fa-arrows-alt-v"></i>
+                                Width (in feet)
+                            </label>
+                            <input type="number" id="roomWidth" placeholder="e.g., 10" min="1" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label>
+                                <i class="fas fa-ruler-vertical"></i>
+                                Height (in feet)
+                            </label>
+                            <input type="number" id="roomHeight" placeholder="e.g., 10" min="1" step="0.5">
+                        </div>
+                        <button class="skip-size-btn" onclick="skipRoomSize()">
+                            <i class="fas fa-question-circle"></i> I Don't Know - We'll Measure It
+                        </button>
+                        <div class="size-note">
+                            <i class="fas fa-info-circle"></i>
+                            <span>Provide approximate measurements or click "I Don't Know" to skip</span>
+                        </div>
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn btn-back" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-next" onclick="nextStep()" id="nextBtn3" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Features with Add Custom Feature -->
+                <div class="config-step" id="step4">
+                    <h2 class="step-title">Choose Features & Items</h2>
+                    <p class="step-subtitle">Select what you need in your space</p>
+                    
+                    <div class="checkbox-list" id="featuresList"></div>
+
+                    <!-- Add Custom Feature Button -->
+                    <button class="add-feature-btn" onclick="showAddFeatureInput()">
+                        <i class="fas fa-plus-circle"></i> Add Custom Feature
+                    </button>
+
+                    <!-- Custom Feature Input -->
+                    <div class="custom-input-section" id="customFeatureSection" style="display: none;">
+                        <h5><i class="fas fa-magic"></i> Add Your Custom Feature</h5>
+                        <input 
+                            type="text" 
+                            id="customFeatureInput" 
+                            placeholder="e.g., Wine Rack, Pet Corner, Home Theater..."
+                        >
+                        <button class="btn btn-next" onclick="addCustomFeature()" style="margin-top: 0.5rem;">
+                            <i class="fas fa-check"></i> Add Feature
+                        </button>
+                    </div>
+
+                    <!-- Custom Features List -->
+                    <div class="custom-features-list" id="customFeaturesList"></div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn btn-back" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="btn btn-next" onclick="nextStep()" id="nextBtn4" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Colors with Custom Color -->
+                <div class="config-step" id="step5">
+                    <h2 class="step-title">Pick Your Color Scheme</h2>
+                    <p class="step-subtitle">Choose colors that reflect your style</p>
+                    
+                    <div class="color-palette" id="colorPalette"></div>
+
+                    <!-- Custom Color Input -->
+                    <div class="custom-input-section">
+                        <h5><i class="fas fa-palette"></i> Or Specify Your Custom Color</h5>
+                        <input 
+                            type="text" 
+                            id="customColorInput" 
+                            placeholder="e.g., Light Blue, Burgundy, Pastel Pink..."
+                            oninput="updateCustomColor()"
+                        >
+                    </div>
+                    
+                    <div class="step-navigation">
+                        <button class="btn btn-back" onclick="prevStep()">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel - Summary -->
+            <div class="summary-panel">
+                <h3 class="summary-title">
+                    <i class="fas fa-clipboard-list"></i>
+                    Your Design Summary
+                </h3>
+                
+                <div class="summary-section">
+                    <div class="summary-label">Room Type</div>
+                    <div class="summary-value" id="summaryRoom">Not selected</div>
+                </div>
+                
+                <div class="summary-section">
+                    <div class="summary-label">Layout Style</div>
+                    <div class="summary-value" id="summaryLayout">Not selected</div>
+                </div>
+
+                <div class="summary-section">
+                    <div class="summary-label">Room Size</div>
+                    <div class="summary-value" id="summarySize">Not entered</div>
+                </div>
+                
+                <div class="summary-section">
+                    <div class="summary-label">Selected Features</div>
+                    <ul class="summary-list" id="summaryFeatures">
+                        <li style="color: var(--text-light);">No features selected yet</li>
+                    </ul>
+                </div>
+                
+                <div class="summary-section">
+                    <div class="summary-label">Color Scheme</div>
+                    <div class="summary-value" id="summaryColor">Not selected</div>
+                </div>
+                
+                <button class="submit-btn" onclick="submitDesign()" id="submitBtn" disabled>
+                    <i class="fab fa-whatsapp"></i>
+                    Submit to NPAR Interiors
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="success-modal" id="successModal">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h2>Redirecting to WhatsApp!</h2>
+            <p>Your design details are being sent to NPAR Interiors via WhatsApp. We'll contact you shortly!</p>
+            <button class="btn btn-next" onclick="closeSuccessModal()">
+                Wait <i class="fas fa-check"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Configuration Data
+        const designData = {
+            room: '',
+            customRoom: '',
+            layout: '',
+            customLayout: '',
+            roomSize: { length: '', width: '', height: '' },
+            roomSizeSkipped: false,
+            features: [],
+            customFeatures: [],
+            color: '',
+            customColor: ''
+        };
+
+        let currentStep = 1;
+
+        // Room layouts
+        const layouts = {
+            kitchen: [
+                { id: 'l-shape', name: 'L-Shape', icon: 'fa-shapes', desc: 'Corner layout' },
+                { id: 'u-shape', name: 'U-Shape', icon: 'fa-square', desc: 'Three-wall design' },
+                { id: 'i-shape', name: 'I-Shape', icon: 'fa-grip-lines-vertical', desc: 'Single wall' },
+                { id: 'parallel', name: 'Parallel', icon: 'fa-equals', desc: 'Two walls' },
+                { id: 'island', name: 'Island', icon: 'fa-border-all', desc: 'Central unit' }
+            ],
+            living: [
+                { id: 'open', name: 'Open Plan', icon: 'fa-expand', desc: 'Spacious layout' },
+                { id: 'cozy', name: 'Cozy Corner', icon: 'fa-home', desc: 'Intimate space' },
+                { id: 'entertainment', name: 'Entertainment', icon: 'fa-tv', desc: 'Media focused' },
+                { id: 'formal', name: 'Formal', icon: 'fa-door-open', desc: 'Traditional' }
+            ],
+            bedroom: [
+                { id: 'master', name: 'Master Suite', icon: 'fa-crown', desc: 'Luxury design' },
+                { id: 'modern', name: 'Modern', icon: 'fa-bed', desc: 'Contemporary' },
+                { id: 'minimal', name: 'Minimalist', icon: 'fa-minus', desc: 'Clean & simple' },
+                { id: 'cozy', name: 'Cozy', icon: 'fa-heart', desc: 'Warm & inviting' }
+            ],
+            other: [
+                { id: 'standard', name: 'Standard', icon: 'fa-th-large', desc: 'Basic layout' },
+                { id: 'custom', name: 'Custom', icon: 'fa-magic', desc: 'Unique design' }
+            ]
+        };
+
+        // Features
+        const features = {
+            kitchen: [
+                { id: 'cabinets', name: 'Upper Cabinets', desc: 'Wall-mounted storage' },
+                { id: 'drawers', name: 'Modular Drawers', desc: 'Pull-out storage' },
+                { id: 'chimney', name: 'Chimney & Hob', desc: 'Ventilation system' },
+                { id: 'sink', name: 'Designer Sink', desc: 'Premium quality' },
+                { id: 'backsplash', name: 'Tile Backsplash', desc: 'Decorative wall' },
+                { id: 'lighting', name: 'LED Lighting', desc: 'Under-cabinet lights' },
+                { id: 'appliances', name: 'Built-in Appliances', desc: 'Integrated design' },
+                { id: 'breakfast', name: 'Breakfast Counter', desc: 'Dining space' }
+            ],
+            living: [
+                { id: 'tv-unit', name: 'TV Unit', desc: 'Media console' },
+                { id: 'sofa', name: 'Sofa Set', desc: 'Seating arrangement' },
+                { id: 'coffee-table', name: 'Coffee Table', desc: 'Center table' },
+                { id: 'wall-shelves', name: 'Wall Shelves', desc: 'Display units' },
+                { id: 'curtains', name: 'Designer Curtains', desc: 'Window treatments' },
+                { id: 'lighting', name: 'Ambient Lighting', desc: 'Mood lights' },
+                { id: 'carpet', name: 'Area Carpet', desc: 'Floor covering' },
+                { id: 'wall-art', name: 'Wall Decor', desc: 'Artistic touch' }
+            ],
+            bedroom: [
+                { id: 'bed', name: 'Designer Bed', desc: 'King/Queen size' },
+                { id: 'wardrobe', name: 'Wardrobe', desc: 'Custom closet' },
+                { id: 'dresser', name: 'Dresser Unit', desc: 'With mirror' },
+                { id: 'bedside', name: 'Bedside Tables', desc: 'Night stands' },
+                { id: 'study', name: 'Study Table', desc: 'Work area' },
+                { id: 'lighting', name: 'Mood Lighting', desc: 'Adjustable lights' },
+                { id: 'curtains', name: 'Blackout Curtains', desc: 'Light control' },
+                { id: 'seating', name: 'Seating Area', desc: 'Reading nook' }
+            ],
+            other: [
+                { id: 'storage', name: 'Storage Units', desc: 'Organized space' },
+                { id: 'lighting', name: 'Custom Lighting', desc: 'Mood lighting' },
+                { id: 'flooring', name: 'Premium Flooring', desc: 'Quality floors' },
+                { id: 'decor', name: 'Decorative Elements', desc: 'Finishing touches' }
+            ]
+        };
+
+        // Colors
+        const colors = [
+            { id: 'white', name: 'Pure White', value: '#FFFFFF' },
+            { id: 'cream', name: 'Cream', value: '#F5E6D3' },
+            { id: 'beige', name: 'Beige', value: '#D4C5B9' },
+            { id: 'grey', name: 'Modern Grey', value: '#95A5A6' },
+            { id: 'navy', name: 'Navy Blue', value: '#34495E' },
+            { id: 'olive', name: 'Olive Green', value: '#7D8471' },
+            { id: 'terracotta', name: 'Terracotta', value: '#E07A5F' },
+            { id: 'sage', name: 'Sage Green', value: '#9CAF88' },
+            { id: 'charcoal', name: 'Charcoal', value: '#36454F' },
+            { id: 'ivory', name: 'Ivory', value: '#FFFFF0' },
+            { id: 'taupe', name: 'Taupe', value: '#B38B6D' },
+            { id: 'mint', name: 'Mint', value: '#B5E7C3' }
+        ];
+
+        // Initialize
+        function initColorPalette() {
+            const palette = document.getElementById('colorPalette');
+            if (palette) {
+                palette.innerHTML = colors.map(color => `
+                    <div class="color-option" style="background: ${color.value}" data-color-id="${color.id}" data-color-name="${color.name}" data-color-value="${color.value}">
+                        <div class="color-name">${color.name}</div>
+                    </div>
+                `).join('');
+                
+                document.querySelectorAll('.color-option').forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectColor(
+                            this.getAttribute('data-color-id'),
+                            this.getAttribute('data-color-name'),
+                            this.getAttribute('data-color-value'),
+                            this
+                        );
+                    });
+                });
+            }
+        }
+
+        // Room size validation
+        document.getElementById('roomLength')?.addEventListener('input', validateRoomSize);
+        document.getElementById('roomWidth')?.addEventListener('input', validateRoomSize);
+        document.getElementById('roomHeight')?.addEventListener('input', validateRoomSize);
+
+        function validateRoomSize() {
+            const length = document.getElementById('roomLength').value;
+            const width = document.getElementById('roomWidth').value;
+            const height = document.getElementById('roomHeight').value;
+
+            if (length && width && height) {
+                designData.roomSize = { length, width, height };
+                designData.roomSizeSkipped = false;
+                document.getElementById('summarySize').textContent = 
+                    `${length}' × ${width}' × ${height}'`;
+                document.getElementById('nextBtn3').disabled = false;
+            } else if (!designData.roomSizeSkipped) {
+                document.getElementById('nextBtn3').disabled = true;
+            }
+        }
+
+        // Skip room size
+        function skipRoomSize() {
+            designData.roomSizeSkipped = true;
+            designData.roomSize = { length: '', width: '', height: '' };
+            document.getElementById('summarySize').textContent = "We'll measure it for you";
+            document.getElementById('roomLength').value = '';
+            document.getElementById('roomWidth').value = '';
+            document.getElementById('roomHeight').value = '';
+            document.getElementById('nextBtn3').disabled = false;
+        }
+
+        // Select Room
+        function selectRoom(room) {
+            designData.room = room;
+            document.querySelectorAll('#step1 .option-card').forEach(card => card.classList.remove('selected'));
+            event.target.closest('.option-card').classList.add('selected');
+            
+            if (room === 'other') {
+                document.getElementById('customRoomSection').style.display = 'block';
+                document.getElementById('nextBtn1').disabled = true;
+            } else {
+                document.getElementById('customRoomSection').style.display = 'none';
+                designData.customRoom = '';
+                document.getElementById('customRoomInput').value = '';
+                document.getElementById('summaryRoom').textContent = room.charAt(0).toUpperCase() + room.slice(1);
+                document.getElementById('nextBtn1').disabled = false;
+            }
+            loadLayouts(room);
+        }
+
+        // Update custom room
+        function updateCustomRoom() {
+            const customRoom = document.getElementById('customRoomInput').value.trim();
+            if (customRoom) {
+                designData.customRoom = customRoom;
+                document.getElementById('summaryRoom').textContent = customRoom;
+                document.getElementById('nextBtn1').disabled = false;
+            } else {
+                document.getElementById('nextBtn1').disabled = true;
+            }
+        }
+
+        // Load Layouts
+        function loadLayouts(room) {
+            const layoutOptions = document.getElementById('layoutOptions');
+            if (layoutOptions) {
+                layoutOptions.innerHTML = layouts[room].map(layout => `
+                    <div class="option-card" data-layout-id="${layout.id}" data-layout-name="${layout.name}">
+                        <div class="option-icon"><i class="fas ${layout.icon}"></i></div>
+                        <h4>${layout.name}</h4>
+                        <p>${layout.desc}</p>
+                    </div>
+                `).join('');
+                
+                document.querySelectorAll('#layoutOptions .option-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        selectLayout(
+                            this.getAttribute('data-layout-id'),
+                            this.getAttribute('data-layout-name'),
+                            this
+                        );
+                    });
+                });
+            }
+            loadFeatures(room);
+        }
+
+        // Select Layout
+        function selectLayout(layoutId, layoutName, element) {
+            designData.layout = layoutId;
+            designData.customLayout = '';
+            document.getElementById('customLayoutInput').value = '';
+            document.querySelectorAll('#step2 .option-card').forEach(card => card.classList.remove('selected'));
+            if (element) element.classList.add('selected');
+            document.getElementById('summaryLayout').textContent = layoutName;
+            document.getElementById('nextBtn2').disabled = false;
+        }
+
+        // Update custom layout
+        function updateCustomLayout() {
+            const customLayout = document.getElementById('customLayoutInput').value.trim();
+            if (customLayout) {
+                designData.customLayout = customLayout;
+                designData.layout = 'custom';
+                document.querySelectorAll('#step2 .option-card').forEach(card => card.classList.remove('selected'));
+                document.getElementById('summaryLayout').textContent = 'Custom: ' + customLayout.substring(0, 30) + '...';
+                document.getElementById('nextBtn2').disabled = false;
+            }
+        }
+
+        // Load Features
+        function loadFeatures(room) {
+            const featuresList = document.getElementById('featuresList');
+            if (featuresList) {
+                featuresList.innerHTML = features[room].map(feature => `
+                    <div class="checkbox-item" data-feature-id="${feature.id}" data-feature-name="${feature.name}">
+                        <div class="custom-checkbox"><i class="fas fa-check"></i></div>
+                        <div class="checkbox-content">
+                            <h5>${feature.name}</h5>
+                            <p>${feature.desc}</p>
+                        </div>
+                    </div>
+                `).join('');
+                
+                document.querySelectorAll('#featuresList .checkbox-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        toggleFeature(
+                            this.getAttribute('data-feature-id'),
+                            this.getAttribute('data-feature-name'),
+                            this
+                        );
+                    });
+                });
+            }
+        }
+
+        // Toggle Feature
+        function toggleFeature(featureId, featureName, element) {
+            if (element) {
+                element.classList.toggle('selected');
+                if (element.classList.contains('selected')) {
+                    designData.features.push({ id: featureId, name: featureName });
+                } else {
+                    designData.features = designData.features.filter(f => f.id !== featureId);
+                }
+            }
+            updateFeaturesSummary();
+            checkStep4Completion();
+        }
+
+        // Show add feature input
+        function showAddFeatureInput() {
+            const section = document.getElementById('customFeatureSection');
+            section.style.display = section.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Add custom feature
+        function addCustomFeature() {
+            const input = document.getElementById('customFeatureInput');
+            const featureName = input.value.trim();
+            
+            if (featureName) {
+                const featureId = 'custom_' + Date.now();
+                designData.customFeatures.push({ id: featureId, name: featureName });
+                
+                // Add to custom features list
+                const listContainer = document.getElementById('customFeaturesList');
+                const featureDiv = document.createElement('div');
+                featureDiv.className = 'custom-feature-item';
+                featureDiv.innerHTML = `
+                    <span><i class="fas fa-star" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${featureName}</span>
+                    <button onclick="removeCustomFeature('${featureId}')"><i class="fas fa-times"></i></button>
+                `;
+                listContainer.appendChild(featureDiv);
+                
+                input.value = '';
+                document.getElementById('customFeatureSection').style.display = 'none';
+                updateFeaturesSummary();
+                checkStep4Completion();
+            }
+        }
+
+        // Remove custom feature
+        function removeCustomFeature(featureId) {
+            designData.customFeatures = designData.customFeatures.filter(f => f.id !== featureId);
+            loadCustomFeaturesList();
+            updateFeaturesSummary();
+            checkStep4Completion();
+        }
+
+        // Load custom features list
+        function loadCustomFeaturesList() {
+            const listContainer = document.getElementById('customFeaturesList');
+            listContainer.innerHTML = designData.customFeatures.map(f => `
+                <div class="custom-feature-item">
+                    <span><i class="fas fa-star" style="color: var(--primary-color); margin-right: 0.5rem;"></i>${f.name}</span>
+                    <button onclick="removeCustomFeature('${f.id}')"><i class="fas fa-times"></i></button>
+                </div>
+            `).join('');
+        }
+
+        // Check step 4 completion
+        function checkStep4Completion() {
+            const hasFeatures = designData.features.length > 0 || designData.customFeatures.length > 0;
+            document.getElementById('nextBtn4').disabled = !hasFeatures;
+        }
+
+        // Update Features Summary
+        function updateFeaturesSummary() {
+            const summaryFeatures = document.getElementById('summaryFeatures');
+            const allFeatures = [...designData.features, ...designData.customFeatures];
+            
+            if (allFeatures.length === 0) {
+                summaryFeatures.innerHTML = '<li style="color: var(--text-light);">No features selected yet</li>';
+            } else {
+                summaryFeatures.innerHTML = allFeatures.map(f => 
+                    `<li><i class="fas fa-check-circle"></i>${f.name}</li>`
+                ).join('');
+            }
+        }
+
+        // Select Color
+        function selectColor(colorId, colorName, colorValue, element) {
+            designData.color = { id: colorId, name: colorName, value: colorValue };
+            designData.customColor = '';
+            document.getElementById('customColorInput').value = '';
+            document.querySelectorAll('.color-option').forEach(option => option.classList.remove('selected'));
+            if (element) element.classList.add('selected');
+            document.getElementById('summaryColor').innerHTML = 
+                `${colorName} <span class="color-preview" style="background: ${colorValue}"></span>`;
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        // Update custom color
+        function updateCustomColor() {
+            const customColor = document.getElementById('customColorInput').value.trim();
+            if (customColor) {
+                designData.customColor = customColor;
+                designData.color = '';
+                document.querySelectorAll('.color-option').forEach(option => option.classList.remove('selected'));
+                document.getElementById('summaryColor').textContent = 'Custom: ' + customColor;
+                document.getElementById('submitBtn').disabled = false;
+            }
+        }
+
+        // Navigation
+        function nextStep() {
+            if (currentStep < 5) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                document.getElementById(`progressStep${currentStep}`).classList.remove('active');
+                document.getElementById(`progressStep${currentStep}`).classList.add('completed');
+                
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById(`progressStep${currentStep}`).classList.add('active');
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                document.getElementById(`progressStep${currentStep}`).classList.remove('active');
+                
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                document.getElementById(`progressStep${currentStep}`).classList.add('active');
+                document.getElementById(`progressStep${currentStep}`).classList.remove('completed');
+            }
+        }
+
+        // Submit Design to WhatsApp
+        function submitDesign() {
+            const whatsappNumber = '919876543210'; // Replace with your WhatsApp number
+            
+            const roomDisplay = designData.customRoom || designData.room.charAt(0).toUpperCase() + designData.room.slice(1);
+            const layoutDisplay = designData.customLayout || designData.layout.toUpperCase().replace('-', ' ');
+            const sizeDisplay = designData.roomSizeSkipped ? 
+                "Customer requested measurement service" : 
+                `${designData.roomSize.length}' × ${designData.roomSize.width}' × ${designData.roomSize.height}' (Area: ${(designData.roomSize.length * designData.roomSize.width).toFixed(2)} sq ft)`;
+            const colorDisplay = designData.customColor || designData.color.name;
+            
+            const allFeatures = [...designData.features, ...designData.customFeatures];
+            
+            const message = `*🏠 New Interior Design Request - NPAR Interiors*
+
+*Room Type:* ${roomDisplay}
+
+*Layout Style:* ${layoutDisplay}
+
+*Room Dimensions:* ${sizeDisplay}
+
+*Color Scheme:* 🎨 ${colorDisplay}
+
+*Selected Features:*
+${allFeatures.map(f => `✅ ${f.name}`).join('\n')}
+
+---
+_Design request submitted from NPAR Interiors Design Tool_
+📱 Customer is waiting for your response!`;
+            
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            // Show success modal
+            document.getElementById('successModal').classList.add('active');
+            
+            // Open WhatsApp after 2 seconds
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+            }, 2000);
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+            window.location.href = 'index.html';
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initColorPalette();
+        });
+    </script>
+</body>
+</html>

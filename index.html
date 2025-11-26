@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="NPAR Interiors - Transform your space with expert interior design services. Book free consultation, calculate your budget, and shop premium designs.">
+    <meta name="keywords" content="interior design, home decor, residential interior, commercial interior, NPAR Interiors, interior designer, space planning, home renovation, budget calculator">
+    <meta name="author" content="NPAR Interiors">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="NPAR Interiors - Expert Interior Design Services">
+    <meta property="og:description" content="Transform your space with expert interior design services. Book free consultation and calculate your budget instantly.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.nparinteriors.com">
+    
+    <title>NPAR Interiors - Expert Interior Design Services | Free Consultation</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet"href="style.css">
+    
+   
+</head>
+<body>
+    <!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-container">
+       <div class="logo">
+    <img src="npr-logo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+           
+            <li><a href="service.html">Services</a></li>
+             <li><a href="about.html">About Us</a></li>
+              <li><a href="warranty.html">Warranty</a></li>
+            <li><a href="javascript:void(0)" class="cta-btn" onclick="openContactPopup()">Contact Us</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</nav>
+
+
+    <!-- Hero Slider Section -->
+    <section class="hero-slider" id="home">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600');">
+            <div class="hero-content">
+                <h1>Transform Your Space</h1>
+                <p>Creating beautiful, functional interiors that reflect your unique style</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openBookingModal()">
+                        <i class="fas fa-calendar-check"></i> Book Free Consultation
+                    </button>
+                             <button class="btn btn-secondary" onclick="window.location.href='interactive.html'">
+    <i class="fas fa-calculator"></i> Calculate Your Budget
+</button>
+                    <button class="btn btn-tertiary" onclick="window.location.href='Service.html'">
+                        <i class="fas fa-shopping-bag"></i> our Service
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600');">
+            <div class="hero-content">
+                <h1>Luxury Living Spaces</h1>
+                <p>Expert design solutions for residential and commercial projects</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openBookingModal()">
+                        <i class="fas fa-calendar-check"></i> Book Free Consultation
+                    </button>
+                            <button class="btn btn-secondary" onclick="window.location.href='interactive.html'">
+    <i class="fas fa-calculator"></i> Calculate Your Budget
+</button>
+                    <button class="btn btn-tertiary" onclick="window.location.href='service.html'">
+                        <i class="fas fa-shopping-bag"></i> Our Service
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600');">
+            <div class="hero-content">
+                <h1>Design Excellence</h1>
+                <p>15+ years of crafting stunning interiors with precision and passion</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openBookingModal()">
+                        <i class="fas fa-calendar-check"></i> Book Free Consultation
+                    </button>
+                <button class="btn btn-secondary" onclick="window.location.href='interactive.html'">
+    <i class="fas fa-calculator"></i> Calculate Your Budget
+</button>
+
+                    <button class="btn btn-tertiary" onclick="window.location.href='service.html'">
+                        <i class="fas fa-shopping-bag"></i> Our Service
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <div class="slider-arrow prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="slider-arrow next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+        
+        <div class="slider-controls">
+            <div class="slider-dot active" onclick="goToSlide(0)"></div>
+            <div class="slider-dot" onclick="goToSlide(1)"></div>
+            <div class="slider-dot" onclick="goToSlide(2)"></div>
+        </div>
+    </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeBookingModal()">&times;</button>
+            <h2>Book Free Consultation</h2>
+            <div class="divider"></div>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Fill in your details and our design expert will contact you within 24 hours</p>
+            
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="bookingForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="propertyType">Property Type *</label>
+                    <select id="propertyType" name="propertyType" required>
+                        <option value="">Select Property Type</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Villa">Villa</option>
+                        <option value="Office">Office</option>
+                        <option value="Retail">Retail Space</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location/City *</label>
+                    <input type="text" id="location" name="location" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell us about your project</label>
+                    <textarea id="message" name="message" placeholder="Share your vision, requirements, and preferred timeline..."></textarea>
+                </div>
+                
+                <input type="hidden" name="_subject" value="New Consultation Booking - NPAR Interiors">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Booking Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800" alt="NPAR Interiors Design Studio">
+                </div>
+                <div class="about-text">
+                    <h3>Crafting Spaces, Creating Stories</h3>
+                    <div class="divider" style="margin: 1rem 0;"></div>
+                    <p>At NPAR Interiors, we believe every space tells a story. With years of expertise in residential and commercial interior design, we transform ordinary spaces into extraordinary experiences.</p>
+                    <p>Our passionate team of designers combines creativity with functionality, ensuring each project reflects your vision while maximizing comfort and style.</p>
+                    <button class="btn btn-primary" style="margin-top: 1rem;" onclick="openBookingModal()">
+                        Get Started Today
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Interior Solutions Section - NEW -->
+    <section class="interior-solutions" id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <h2>One-Stop Shop for All Things Interiors</h2>
+                <div class="divider"></div>
+                <p>Be it end-to-end interiors, renovation or modular solutions, we have it all for your home or office. With a wide range of furniture & decor, we have your back from start to finish.</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <!-- Modular Interiors -->
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?w=600" alt="Modular Interiors">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Modular Interiors</h3>
+                        <p>Functional kitchen, wardrobe and storage solutions tailored to your space</p>
+                        <div class="solution-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Full Home Interiors -->
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="Full Home Interiors">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Full Home Interiors</h3>
+                        <p>Turnkey interior solutions for your complete home transformation</p>
+                        <div class="solution-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Luxury Interiors -->
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600" alt="Luxury Interiors">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Luxury Interiors</h3>
+                        <p>Tailored interiors that redefine elegance and sophistication</p>
+                        <div class="solution-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Renovations -->
+                <div class="solution-card">
+                    <div class="solution-image">
+                        <img src="https://images.unsplash.com/photo-1631889993959-41b4e9c6e3c5?w=600" alt="Renovations">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Renovations</h3>
+                        <p>Expert solutions to upgrade and transform your existing home</p>
+                        <div class="solution-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- Services Section - Updated with Images -->
+<section class="services" id="services">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <div class="divider"></div>
+            <p>Comprehensive interior design solutions tailored to your needs</p>
+        </div>
+        <div class="services-grid-new">
+            <!-- Modular Kitchen Designs -->
+            <div class="service-card-new">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="Modular Kitchen Designs">
+                    <div class="service-overlay">
+                        <div class="service-overlay-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Modular Kitchen Designs</h3>
+                    <p>Contemporary modular kitchens with smart storage, premium finishes, and ergonomic designs for modern living.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Customized Furniture -->
+            <div class="service-card-new">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600" alt="Customized Furniture">
+                    <div class="service-overlay">
+                        <div class="service-overlay-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Customized Furniture</h3>
+                    <p>Bespoke furniture solutions crafted to perfection, matching your style and space requirements.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- False Ceiling Design -->
+            <div class="service-card-new">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="False Ceiling Design">
+                    <div class="service-overlay">
+                        <div class="service-overlay-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>False Ceiling Design</h3>
+                    <p>Stunning ceiling designs with integrated lighting, adding elegance and dimension to your spaces.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Interior of Whole Room -->
+            <div class="service-card-new">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600" alt="Interior of Whole Room">
+                    <div class="service-overlay">
+                        <div class="service-overlay-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Interior of Whole Room</h3>
+                    <p>Complete room transformations with cohesive design, furniture, lighting, and decor elements.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Bedroom Interior Design -->
+            <div class="service-card-new">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=600" alt="Bedroom Interior Design">
+                    <div class="service-overlay">
+                        <div class="service-overlay-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Bedroom Interior Design</h3>
+                    <p>Luxurious bedroom designs creating peaceful sanctuaries with elegant wardrobes and furniture.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Commercial Space Interior -->
+            <div class="service-card-new">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Commercial Space Interior">
+                    <div class="service-overlay">
+                        <div class="service-overlay-content">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Commercial Space Interior</h3>
+                    <p>Professional office and retail designs that boost productivity and create impressive brand experiences.</p>
+                    <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- View More Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="btn btn-primary" onclick="window.location.href='service.html'">
+                <i class="fab fa-youtube"></i> View All Services
+            </button>
+        </div>
+</section>
+<!-- High-Light Section-->
+ <!-- Highlights Section -->
+<section class="highlights-section">
+    <div class="highlights-container">
+        <h2 class="highlights-title">Why Choose NPAR Interiors?</h2>
+        <div class="divider"></div>
+        <p class="highlights-subtitle">Experience luxury, quality, and trust with every project</p>
+
+        <div class="highlights-grid">
+            <!-- Highlight 1 -->
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600" alt="Home Interior">
+                    <div class="highlight-badge">Starting @ ₹3.7L</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home Interior</h3>
+                    <p>Complete home transformation starting from just ₹3.7 Lakhs</p>
+                </div>
+            </div>
+
+            <!-- Highlight 2 -->
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" alt="Kitchen">
+                    <div class="highlight-badge">Starting @ ₹1L</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Modular Kitchen</h3>
+                    <p>Premium modular kitchens starting from ₹1 Lakh only</p>
+                </div>
+            </div>
+
+            <!-- Highlight 3 -->
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Ultra Luxury">
+                    <div class="highlight-badge luxury-badge">
+                        <i class="fas fa-crown"></i> LUXURY
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Ultra Luxury Interior</h3>
+                    <p>Exclusive premium designs for discerning clients</p>
+                </div>
+            </div>
+
+            <!-- Highlight 4 -->
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Warranty">
+                    <div class="highlight-badge warranty-badge">10 YEARS</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>10 Years Warranty</h3>
+                    <p>Comprehensive warranty coverage on all our products</p>
+                    <a href="javascript:void(0)" onclick="showWarrantyTerms()" class="terms-link">
+                        <i class="fas fa-file-contract"></i> View Terms & Conditions
+                    </a>
+                </div>
+            </div>
+
+            <!-- Highlight 5 -->
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?w=600" alt="Special Kitchen">
+                    <div class="highlight-badge special-badge">
+                        <i class="fas fa-star"></i> SPECIAL
+                    </div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>NPAR Special Collection</h3>
+                    <p>Exclusive kitchen & wardrobe designs crafted by our experts</p>
+                </div>
+            </div>
+
+            <!-- Highlight 6 -->
+            <div class="highlight-card">
+                <div class="highlight-image">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=600" alt="Free Services">
+                    <div class="highlight-badge free-badge">100% FREE</div>
+                </div>
+                <div class="highlight-content">
+                    <div class="highlight-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Complimentary Services</h3>
+                    <p>Free site visit, design consultation & 3D drawings</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ <!-- Customer Review Videos Section -->
+<section class="customer-reviews" id="customer-reviews">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Testimonials</span>
+            <h2>What Our Customers Say</h2>
+            <div class="divider-creative">
+                <span class="divider-dot"></span>
+                <span class="divider-line"></span>
+                <span class="divider-dot"></span>
+            </div>
+            <p>Real stories from real people who transformed their spaces with us</p>
+        </div>
+        
+        <div class="video-reviews-grid">
+            <!-- Video Review 1 -->
+            <div class="video-review-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" 
+                        title="Customer Review 1"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="play-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="customer-details">
+                        <img src="https://ui-avatars.com/api/?name=Rajesh+Kumar&background=c9a96e&color=fff" alt="Rajesh Kumar">
+                        <div>
+                            <h4>Rajesh Kumar</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"NPAR Interiors transformed our home beautifully. Professional team and amazing results!"</p>
+                    <span class="project-type"><i class="fas fa-home"></i> 3 BHK Apartment</span>
+                </div>
+            </div>
+
+            <!-- Video Review 2 -->
+            <div class="video-review-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" 
+                        title="Customer Review 2"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="play-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="customer-details">
+                        <img src="https://ui-avatars.com/api/?name=Priya+Sharma&background=c9a96e&color=fff" alt="Priya Sharma">
+                        <div>
+                            <h4>Priya Sharma</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Excellent workmanship and attention to detail. Highly recommended for modular kitchen!"</p>
+                    <span class="project-type"><i class="fas fa-utensils"></i> Modular Kitchen</span>
+                </div>
+            </div>
+
+            <!-- Video Review 3 -->
+            <div class="video-review-card">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" 
+                        title="Customer Review 3"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="play-overlay">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <div class="customer-details">
+                        <img src="https://ui-avatars.com/api/?name=Amit+Verma&background=c9a96e&color=fff" alt="Amit Verma">
+                        <div>
+                            <h4>Amit Verma</h4>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"Perfect balance of aesthetics and functionality. Our office looks stunning now!"</p>
+                    <span class="project-type"><i class="fas fa-building"></i> Commercial Office</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- View More Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="btn btn-primary" onclick="window.open('https://www.youtube.com/@yourchannel', '_blank')">
+                <i class="fab fa-youtube"></i> View All Reviews on YouTube
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+ <!-- Why Choose Us Section -->
+<section class="why-choose-us" id="why-choose-us">
+    <div class="animated-background">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+    </div>
+    
+    <div class="container">
+        <div class="section-header">
+            <span class="section-badge">Our Excellence</span>
+            <h2>Why We Stand Apart</h2>
+            <div class="divider-creative">
+                <span class="divider-dot"></span>
+                <span class="divider-line"></span>
+                <span class="divider-dot"></span>
+            </div>
+            <p>Transforming dreams into reality with unmatched expertise and dedication</p>
+        </div>
+        
+        <div class="why-creative-wrapper">
+            <!-- Left Feature Card -->
+            <div class="feature-card feature-left">
+                <div class="feature-number">500+</div>
+                <h4>Happy Clients</h4>
+                <p>Trust our expertise</p>
+                <div class="card-glow"></div>
+            </div>
+            
+            <!-- Center Rotating Cards -->
+            <div class="rotating-cards-container">
+                <div class="rotating-cards">
+                    <!-- Card 1 -->
+                    <div class="rotate-card" data-card="1">
+                        <div class="card-inner">
+                            <div class="icon-circle">
+                                <i class="fas fa-lightbulb"></i>
+                                <div class="icon-ring"></div>
+                                <div class="icon-ring-2"></div>
+                            </div>
+                            <h3>Creative Vision</h3>
+                            <p>Innovative designs that reflect your unique style and personality with artistic excellence</p>
+                            <div class="card-number">01</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="rotate-card" data-card="2">
+                        <div class="card-inner">
+                            <div class="icon-circle">
+                                <i class="fas fa-gem"></i>
+                                <div class="icon-ring"></div>
+                                <div class="icon-ring-2"></div>
+                            </div>
+                            <h3>Premium Quality</h3>
+                            <p>Handpicked materials and superior craftsmanship ensuring lasting beauty and durability</p>
+                            <div class="card-number">02</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="rotate-card" data-card="3">
+                        <div class="card-inner">
+                            <div class="icon-circle">
+                                <i class="fas fa-rocket"></i>
+                                <div class="icon-ring"></div>
+                                <div class="icon-ring-2"></div>
+                            </div>
+                            <h3>Swift Execution</h3>
+                            <p>Timely project delivery with seamless coordination and professional project management</p>
+                            <div class="card-number">03</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4 -->
+                    <div class="rotate-card" data-card="4">
+                        <div class="card-inner">
+                            <div class="icon-circle">
+                                <i class="fas fa-hand-holding-heart"></i>
+                                <div class="icon-ring"></div>
+                                <div class="icon-ring-2"></div>
+                            </div>
+                            <h3>Client-First Approach</h3>
+                            <p>Your satisfaction is our priority with personalized attention at every project phase</p>
+                            <div class="card-number">04</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5 -->
+                    <div class="rotate-card" data-card="5">
+                        <div class="card-inner">
+                            <div class="icon-circle">
+                                <i class="fas fa-certificate"></i>
+                                <div class="icon-ring"></div>
+                                <div class="icon-ring-2"></div>
+                            </div>
+                            <h3>Certified Excellence</h3>
+                            <p>Award-winning designs recognized by industry leaders and satisfied homeowners</p>
+                            <div class="card-number">05</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6 -->
+                    <div class="rotate-card" data-card="6">
+                        <div class="card-inner">
+                            <div class="icon-circle">
+                                <i class="fas fa-shield-check"></i>
+                                <div class="icon-ring"></div>
+                                <div class="icon-ring-2"></div>
+                            </div>
+                            <h3>Lifetime Support</h3>
+                            <p>Dedicated after-service care and maintenance support for years of worry-free living</p>
+                            <div class="card-number">06</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Dots -->
+                <div class="card-dots">
+                    <span class="dot" data-dot="1"></span>
+                    <span class="dot" data-dot="2"></span>
+                    <span class="dot" data-dot="3"></span>
+                    <span class="dot" data-dot="4"></span>
+                    <span class="dot" data-dot="5"></span>
+                    <span class="dot" data-dot="6"></span>
+                </div>
+            </div>
+            
+            <!-- Right Feature Card -->
+            <div class="feature-card feature-right">
+                <div class="feature-number">15+</div>
+                <h4>Years Legacy</h4>
+                <p>Excellence since 2010</p>
+                <div class="card-glow"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Dream Home CTA Section -->
+<section class="dream-home-cta">
+    <div class="cta-background">
+        <div class="cta-illustration-left">
+            <img src="https://cdn-icons-png.flaticon.com/512/2917/2917995.png" alt="Interior Design">
+        </div>
+        <div class="cta-illustration-right">
+            <img src="https://cdn-icons-png.flaticon.com/512/3659/3659898.png" alt="Home Furniture">
+        </div>
+    </div>
+    
+    <div class="cta-content">
+        <h2>Your dream home is just a click away</h2>
+        <button class="cta-get-started" onclick="openDreamHomeForm()">
+            GET STARTED
+        </button>
+    </div>
+</section>
+
+<!-- Dream Home Form Modal -->
+<div id="dreamHomeModal" class="modal">
+    <div class="modal-content dream-home-modal">
+        <button class="modal-close" onclick="closeDreamHomeForm()">&times;</button>
+        
+        <div class="modal-header">
+            <div class="modal-icon">
+                <i class="fas fa-home"></i>
+            </div>
+            <h2>Start Your Dream Home Journey</h2>
+            <p>Share your details and we'll connect with you on WhatsApp</p>
+        </div>
+        
+        <form id="dreamHomeForm" onsubmit="submitDreamHomeForm(event)">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="customerName">
+                        <i class="fas fa-user"></i> Full Name *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="customerName" 
+                        name="name" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerPhone">
+                        <i class="fas fa-phone"></i> Phone Number *
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="customerPhone" 
+                        name="phone" 
+                        placeholder="+91 6000739059"
+                        pattern="[0-9]{10}"
+                        required
+                    >
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="customerEmail">
+                        <i class="fas fa-envelope"></i> Email Address *
+                    </label>
+                    <input 
+                        type="email" 
+                        id="customerEmail" 
+                        name="email" 
+                        placeholder="your.email@example.com"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="customerCity">
+                        <i class="fas fa-map-marker-alt"></i> City *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="customerCity" 
+                        name="city" 
+                        placeholder="Enter your city"
+                        required
+                    >
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="projectType">
+                    <i class="fas fa-building"></i> Project Type *
+                </label>
+                <select id="projectType" name="projectType" required>
+                    <option value="">Select project type</option>
+                    <option value="Full Home Interior">Full Home Interior</option>
+                    <option value="Modular Kitchen">Modular Kitchen</option>
+                    <option value="Bedroom Interior">Bedroom Interior</option>
+                    <option value="Living Room">Living Room</option>
+                    <option value="Bathroom">Bathroom</option>
+                    <option value="Office Interior">Office Interior</option>
+                    <option value="Commercial Space">Commercial Space</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="customerMessage">
+                    <i class="fas fa-comment-dots"></i> Your Requirements (Optional)
+                </label>
+                <textarea 
+                    id="customerMessage" 
+                    name="message" 
+                    rows="4"
+                    placeholder="Tell us about your project, budget, timeline, or any specific requirements..."
+                ></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+                Send to WhatsApp
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Success Animation -->
+<div class="success-animation" id="successAnimation">
+    <div class="success-checkmark">
+        <div class="check-icon">
+            <span class="icon-line line-tip"></span>
+            <span class="icon-line line-long"></span>
+            <div class="icon-circle"></div>
+            <div class="icon-fix"></div>
+        </div>
+    </div>
+    <h3>Success!</h3>
+    <p>Redirecting to WhatsApp...</p>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+    <div class="footer-container">
+        <div class="footer-content">
+            <!-- About Section -->
+            <div class="footer-about">
+                              <div class="logo">
+    <img src="NparLogo.png" alt="NPAR Interiors" class="logo-image">
+</div>
+         
+                <h3>NPAR Interiors</h3>
+                <p>Transform your space with our expert interior design services. We create beautiful, functional spaces that reflect your unique style and personality.</p>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/profile.php?id=100087824420693" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/npar_interiors?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-icon"><i class="fab fa-instagram"></i></a>
+        
+                    <a href="https://in.pinterest.com/nparinteriors/" class="social-icon"><i class="fab fa-pinterest"></i></a>
+
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-angle-right"></i> Home</a></li>
+                    <li><a href="service.html"><i class="fas fa-angle-right"></i> Services</a></li>
+                    <li><a href="about.html"><i class="fas fa-angle-right"></i> About Us</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-angle-right"></i> Contact</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#modular-kitchen"><i class="fas fa-angle-right"></i> Modular Kitchen</a></li>
+                    <li><a href="#bedroom-design"><i class="fas fa-angle-right"></i> Bedroom Design</a></li>
+                    <li><a href="#office-interior"><i class="fas fa-angle-right"></i> Office Interior</a></li>
+                    <li><a href="#paint"><i class="fas fa-angle-right"></i> Paint Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>GMC Ward Number 44 ,Nayanpur<br>Guwahati Assam, 781006</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+916000739059">+91 60007-39059</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:nparinteriors@gmail.com">nparinteriors@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 NPAR Interiors. All rights reserved. | Designed & Developed by <a href="https://junakdigital.com/">Junak Digital Dynamics</a></p>
+        </div>
+    </div>
+</footer>
+<!-- Animated Floating Designer Button -->
+<div class="floating-designer-btn" onclick="openPopup()">
+    <div class="designer-avatar">
+        <div class="waving-emoji">👋</div>
+        <span class="active-dot"></span>
+    </div>
+    <div class="designer-message">
+        <div class="message-line">
+            <span class="typing-text">Hi! Our designers</span>
+        </div>
+        <div class="message-line">
+            <span class="typing-text-delay">are waiting to start</span>
+        </div>
+        <div class="message-line">
+            <strong class="typing-text-delay2">your dream project!</strong>
+        </div>
+    </div>
+    <div class="click-pulse"></div>
+</div>
+
+<!-- Contact Popup Form -->
+<div class="popup-overlay" id="popupOverlay">
+    <div class="popup-container">
+        <button class="popup-close" onclick="closePopup()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="popup-header">
+            <div class="popup-icon">
+                <div class="waving-hand">👋</div>
+            </div>
+            <h3>Our Designers Are Online!</h3>
+            <p>Just say hello to start your dream project</p>
+            <div class="online-indicator">
+                <span class="pulse-dot"></span>
+                <span class="online-text">Available Now</span>
+            </div>
+        </div>
+        
+        <div class="popup-body">
+            <form id="whatsappForm" onsubmit="submitWhatsAppForm(event)">
+                <div class="popup-form-group">
+                    <label for="popupName">
+                        <i class="fas fa-user"></i> Your Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="popupName" 
+                        name="name" 
+                        placeholder="Enter your full name"
+                        required
+                    >
+                </div>
+                
+                <div class="popup-form-group">
+                    <label for="popupEmail">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input 
+                        type="email" 
+                        id="popupEmail" 
+                        name="email" 
+                        placeholder="info@gamil.com"
+                        required
+                    >
+                </div>
+                
+                <div class="popup-form-group">
+                    <label for="popupPhone">
+                        <i class="fas fa-phone"></i> Contact Number
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="popupPhone" 
+                        name="phone" 
+                        placeholder="+91 6000739059"
+                        required
+                    >
+                </div>
+                
+                <div class="popup-form-group">
+                    <label for="popupLocation">
+                        <i class="fas fa-map-marker-alt"></i> Location
+                    </label>
+                    <input 
+                        type="text" 
+                        id="popupLocation" 
+                        name="location" 
+                        placeholder="City, State"
+                        required
+                    >
+                </div>
+                
+                <button type="submit" class="popup-submit-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Say Hello on WhatsApp
+                </button>
+            </form>
+        </div>
+        
+        <div class="popup-footer">
+            <i class="fab fa-whatsapp"></i>
+            Connect instantly via WhatsApp
+        </div>
+    </div>
+</div>
+
+<!-- Success Message -->
+<div class="success-message" id="successMessage">
+    <div class="success-icon">
+        <i class="fas fa-check"></i>
+    </div>
+    <h3>Message Sent!</h3>
+    <p>Redirecting to WhatsApp...</p>
+</div>
+<!--Contact Button-->
+<!-- Contact Info Popup -->
+<div class="contact-popup-overlay" id="contactPopupOverlay">
+    <div class="contact-popup-container">
+        <button class="contact-popup-close" onclick="closeContactPopup()">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <div class="contact-popup-header">
+            <div class="contact-popup-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h2>Get In Touch</h2>
+            <p>We're here to help bring your vision to life</p>
+        </div>
+        
+        <div class="contact-popup-body">
+            <!-- Phone Number -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon phone-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Call Us</h4>
+                    <a href="tel:+916000739059">+91-60007-39059</a>
+                    <span class="availability">Available 9 AM - 7 PM</span>
+                </div>
+            </div>
+
+            <!-- WhatsApp Number -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>WhatsApp</h4>
+                    <a href="https://wa.me/916000739059"> +91-60007-39059</a>
+                    <span class="availability">Quick Response 24/7</span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon email-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Email Us</h4>
+                    <a href="mailto:info@gamil.com">info@gamil.com</a>
+                    <span class="availability">We reply within 24 hours</span>
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="contact-info-item">
+                <div class="contact-info-icon address-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-info-details">
+                    <h4>Visit Us</h4>
+                    <p>GMC Ward Number 44<br>
+                    Nayanpur ,Guwahati, 781006<br>
+                    Assam,India</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-popup-actions">
+            <a href="tel:+91-6000739059" class="contact-action-btn call-btn">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Now</span>
+            </a>
+            <a href="https://wa.me/916000739059?text=Hello%20NPAR%20Interiors!%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="contact-action-btn whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+</div>
+<!--Warrenty Section-->
+<!-- Warranty Terms Modal -->
+<!-- Warranty Terms Modal -->
+<div class="warranty-modal" id="warrantyModal">
+    <div class="warranty-modal-content">
+        <button class="warranty-close" onclick="closeWarrantyTerms()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="warranty-modal-header">
+            <i class="fas fa-shield-alt"></i>
+            <h2>10 Years Warranty</h2>
+        </div>
+        <div class="warranty-modal-body">
+            <div class="warranty-section">
+                <h3><i class="fas fa-check-circle"></i> What's Covered</h3>
+                <ul>
+                    <li>Manufacturing defects in cabinets & materials</li>
+                    <li>Hardware: hinges, channels, drawer systems</li>
+                    <li>Termite & borer protection (WPC/HDHMR boards)</li>
+                    <li>All modular kitchens, wardrobes & furniture</li>
+                </ul>
+            </div>
+            <div class="warranty-section">
+                <h3><i class="fas fa-clock"></i> Warranty Duration</h3>
+                <ul>
+                    <li><strong>Carcass:</strong> 10 Years</li>
+                    <li><strong>Shutters:</strong> 5 Years</li>
+                    <li><strong>Hardware:</strong> Up to 10 Years</li>
+                </ul>
+            </div>
+            <div class="warranty-cta-modal">
+                <p>For complete terms, exclusions, and claim process</p>
+                <a href="warranty.html" class="view-details-btn">
+                    <i class="fas fa-file-alt"></i>
+                    View Complete Warranty Details
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+// Open Popup
+function openPopup() {
+    document.getElementById('popupOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close Popup
+function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Submit Form to WhatsApp
+function submitWhatsAppForm(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('popupName').value;
+    const email = document.getElementById('popupEmail').value;
+    const phone = document.getElementById('popupPhone').value;
+    const location = document.getElementById('popupLocation').value;
+    
+    const whatsappNumber = '916000739059'; // REPLACE WITH YOUR NUMBER
+    
+    const message = `*🏠 New Inquiry - NPAR Interiors*
+
+*Customer Details:*
+👤 *Name:* ${name}
+📧 *Email:* ${email}
+📱 *Phone:* ${phone}
+📍 *Location:* ${location}
+
+---
+_Customer is ready to start their dream project!_ ✨`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    document.getElementById('popupOverlay').classList.remove('active');
+    document.getElementById('successMessage').classList.add('active');
+    
+    setTimeout(() => {
+        window.open(whatsappURL, '_blank');
+        document.getElementById('successMessage').classList.remove('active');
+        document.body.style.overflow = 'auto';
+        document.getElementById('whatsappForm').reset();
+    }, 2000);
+}
+
+// Close on outside click
+document.getElementById('popupOverlay').addEventListener('click', function(event) {
+    if (event.target === this) {
+        closePopup();
+    }
+});
+</script>
+
+
+
+   <script src="script.js"></script>
+     <script src="whychoose.js"></script>
+</body>
+</html>
