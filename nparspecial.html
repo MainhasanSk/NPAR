@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPAR Special Kitchen & Wardrobe Collection - NPAR Interiors</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f06595;
+            --accent-color: #ffb3c1;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --white: #ffffff;
+            --light-bg: #fff5f7;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--light-bg);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1.2rem 0;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-image {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 100px;
+            padding: 4rem 0 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .special-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .intro-section {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+        }
+
+        .intro-section h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            margin: 1rem auto 2rem;
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.9;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+            margin-bottom: 4rem;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-header h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Gallery Slider */
+        .gallery-slider-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .gallery-main-image {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: #f0f0f0;
+        }
+
+        .main-gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 2rem 1.5rem 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .slider-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-btn i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .slider-btn:hover i {
+            color: var(--white);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        /* Thumbnail Gallery */
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            padding: 0 1rem;
+        }
+
+        .thumbnail {
+            position: relative;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        .thumbnail::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 107, 107, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail.active::after {
+            opacity: 1;
+        }
+
+        /* Gallery Controls */
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-btn:hover {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            transform: translateY(-2px);
+            border-color: transparent;
+        }
+
+        /* Collection Grid */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .collection-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255, 107, 107, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(255, 107, 107, 0.25);
+        }
+
+        .collection-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-card:hover .collection-image img {
+            transform: scale(1.1);
+        }
+
+        .collection-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .collection-content {
+            padding: 2rem;
+        }
+
+        .collection-content h3 {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .collection-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .features-list li i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .view-gallery-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+
+        .view-gallery-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--white);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .main-container {
+                padding: 3rem 1rem;
+            }
+
+            .gallery-section {
+                padding: 2rem 1rem;
+            }
+
+            .gallery-main-image {
+                height: 400px;
+            }
+
+            .thumbnail-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+            }
+
+            .thumbnail {
+                height: 80px;
+            }
+
+            .slider-btn {
+                width: 40px;
+                height: 40px;
+            }
+
+            .prev-btn {
+                left: 10px;
+            }
+
+            .next-btn {
+                right: 10px;
+            }
+
+            .image-caption {
+                font-size: 1.1rem;
+                padding: 1.5rem 1rem 1rem;
+            }
+
+            .gallery-controls {
+                flex-direction: column;
+                padding: 0 1rem;
+            }
+
+            .control-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-image {
+                height: 55px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-main-image {
+                height: 300px;
+            }
+
+            .thumbnail-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .thumbnail {
+                height: 70px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="npr-logo.png" alt="NPAR Interiors" class="logo-image">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="warranty.html">Warranty</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="page-header-content">
+            <div class="special-badge">
+                <i class="fas fa-star"></i> NPAR SPECIAL COLLECTION
+            </div>
+            <h1>Exclusive Kitchen & Wardrobe Designs</h1>
+            <p>Premium craftsmanship meets innovative design</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Intro Section -->
+        <div class="intro-section">
+            <h2>Experience Our Signature Collection</h2>
+            <div class="divider"></div>
+            <p>Discover NPAR's exclusive kitchen and wardrobe designs, meticulously crafted with premium materials and innovative storage solutions. Each piece is a perfect blend of style, functionality, and durability.</p>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="gallery-section">
+            <div class="gallery-header">
+                <h3>Our Special Collection Gallery</h3>
+                <p style="color: var(--text-light); margin-top: 0.5rem;">Explore our premium kitchen and wardrobe designs</p>
+            </div>
+
+            <!-- Main Gallery Slider -->
+            <div class="gallery-slider-container">
+                <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="gallery-main-image">
+                    <img src="images/kitchan1.jpg" 
+                         alt="Kitchen Design" 
+                         id="mainImage"
+                         class="main-gallery-img">
+                    <div class="image-caption" id="imageCaption">
+                        Modern Modular Kitchen Design
+                    </div>
+                </div>
+
+                <button class="slider-btn next-btn" onclick="changeSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Thumbnail Gallery -->
+            <div class="thumbnail-gallery">
+                <div class="thumbnail active" onclick="selectImage(0)">
+                    <img src="images/kitchan2.jpg" alt="Kitchen 1">
+                </div>
+                <div class="thumbnail" onclick="selectImage(1)">
+                    <img src="images/kitchan3.jpg" alt="Kitchen 2">
+                </div>
+                <div class="thumbnail" onclick="selectImage(2)">
+                    <img src="images/kitchan4.jpg" alt="Kitchen 3">
+                </div>
+                <div class="thumbnail" onclick="selectImage(3)">
+                    <img src="images/npar1.jpg" alt="Wardrobe 1">
+                </div>
+                <div class="thumbnail" onclick="selectImage(4)">
+                    <img src="images/npar6.jpg" alt="Wardrobe 2">
+                </div>
+                <div class="thumbnail" onclick="selectImage(5)">
+                    <img src="images/npar4.jpg" alt="Interior">
+                </div>
+            </div>
+
+            <!-- Gallery Controls -->
+            <div class="gallery-controls">
+                <button class="control-btn" onclick="startAutoplay()">
+                    <i class="fas fa-play"></i>
+                    Auto Play
+                </button>
+                <button class="control-btn" onclick="stopAutoplay()">
+                    <i class="fas fa-pause"></i>
+                    Pause
+                </button>
+                <button class="control-btn" onclick="openFullscreen()">
+                    <i class="fas fa-expand"></i>
+                    View Fullscreen
+                </button>
+            </div>
+        </div>
+
+        <!-- Collection Grid -->
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-color); margin-bottom: 3rem;">
+            Our Special Collection
+        </h2>
+
+        <div class="collection-grid">
+            <!-- Kitchen Card 1 -->
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="images/kitchan1.jpg" alt="Modern Kitchen">
+                    <div class="collection-badge">PREMIUM</div>
+                </div>
+                <div class="collection-content">
+                    <h3>Modern Modular Kitchen</h3>
+                    <p>Sleek design with premium laminate finish, soft-close drawers, and efficient storage solutions.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> WPC/HDHMR Board</li>
+                        <li><i class="fas fa-check-circle"></i> Soft-Close Hinges</li>
+                        <li><i class="fas fa-check-circle"></i> 10 Years Warranty</li>
+                        <li><i class="fas fa-check-circle"></i> Customizable Design</li>
+                    </ul>
+                    <button class="view-gallery-btn" onclick="scrollToGallery()">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kitchen Card 2 -->
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="images/kitchan2.jpg" alt="Luxury Kitchen">
+                    <div class="collection-badge">LUXURY</div>
+                </div>
+                <div class="collection-content">
+                    <h3>Luxury Kitchen Design</h3>
+                    <p>High-gloss acrylic finish with integrated appliances and LED lighting for modern elegance.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Acrylic Shutters</li>
+                        <li><i class="fas fa-check-circle"></i> LED Strip Lights</li>
+                        <li><i class="fas fa-check-circle"></i> Built-in Appliances</li>
+                        <li><i class="fas fa-check-circle"></i> Premium Hardware</li>
+                    </ul>
+                    <button class="view-gallery-btn" onclick="scrollToGallery()">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wardrobe Card 1 -->
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="images/npar1.jpg" alt="Walk-in Wardrobe">
+                    <div class="collection-badge">EXCLUSIVE</div>
+                </div>
+                <div class="collection-content">
+                    <h3>Walk-in Wardrobe</h3>
+                    <p>Spacious walk-in wardrobe with organized compartments, mirror panels, and elegant lighting.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Mirror Shutters</li>
+                        <li><i class="fas fa-check-circle"></i> Organized Sections</li>
+                        <li><i class="fas fa-check-circle"></i> Soft-Close Drawers</li>
+                        <li><i class="fas fa-check-circle"></i> LED Lighting</li>
+                    </ul>
+                    <button class="view-gallery-btn" onclick="scrollToGallery()">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wardrobe Card 2 -->
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="images/npar4.jpg" alt="Sliding Wardrobe">
+                    <div class="collection-badge">MODERN</div>
+                </div>
+                <div class="collection-content">
+                    <h3>Sliding Door Wardrobe</h3>
+                    <p>Space-saving sliding doors with laminate finish and smart internal organization system.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Sliding Mechanism</li>
+                        <li><i class="fas fa-check-circle"></i> Smart Storage</li>
+                        <li><i class="fas fa-check-circle"></i> Anti-Scratch Coating</li>
+                        <li><i class="fas fa-check-circle"></i> Space Efficient</li>
+                    </ul>
+                    <button class="view-gallery-btn" onclick="scrollToGallery()">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Kitchen Card 3 -->
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="images/kitchan2.jpg" alt="L-Shaped Kitchen">
+                    <div class="collection-badge">POPULAR</div>
+                </div>
+                <div class="collection-content">
+                    <h3>L-Shaped Kitchen</h3>
+                    <p>Efficient L-shaped layout with corner storage solutions and granite countertop.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Corner Carousel</li>
+                        <li><i class="fas fa-check-circle"></i> Granite Countertop</li>
+                        <li><i class="fas fa-check-circle"></i> Pull-out Baskets</li>
+                        <li><i class="fas fa-check-circle"></i> Space Optimized</li>
+                    </ul>
+                    <button class="view-gallery-btn" onclick="scrollToGallery()">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+
+            <!-- Wardrobe Card 3 -->
+            <div class="collection-card">
+                <div class="collection-image">
+                    <img src="images/npar1.jpg" alt="Hinged Wardrobe">
+                    <div class="collection-badge">CLASSIC</div>
+                </div>
+                <div class="collection-content">
+                    <h3>Hinged Door Wardrobe</h3>
+                    <p>Classic hinged wardrobe with ample storage, hanging space, and contemporary design.</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check-circle"></i> Traditional Hinges</li>
+                        <li><i class="fas fa-check-circle"></i> Multiple Compartments</li>
+                        <li><i class="fas fa-check-circle"></i> Hanging Rod</li>
+                        <li><i class="fas fa-check-circle"></i> Elegant Handles</li>
+                    </ul>
+                    <button class="view-gallery-btn" onclick="scrollToGallery()">
+                        <i class="fas fa-images"></i>
+                        View Gallery
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h3>Ready to Get Your Dream Kitchen or Wardrobe?</h3>
+            <p>Contact us today for a free consultation and 3D design</p>
+            <a href="https://wa.me/919876543210?text=Hello%20NPAR%20Interiors!%20I'm%20interested%20in%20the%20special%20kitchen%20and%20wardrobe%20collection." target="_blank" class="cta-btn">
+                <i class="fab fa-whatsapp"></i>
+                Get Free Consultation
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Gallery Data
+        const galleryImages = [
+            {
+                src: 'images/kitchan1.jpg',
+                caption: 'Modern Modular Kitchen Design'
+            },
+            {
+                src: 'images/kitchan4.jpg',
+                caption: 'Luxury Kitchen with Island'
+            },
+            {
+                src: 'images/kitchan2.jpg',
+                caption: 'L-Shaped Kitchen Layout'
+            },
+            {
+                src: 'images/npar6.jpg',
+                caption: 'Elegant Walk-in Wardrobe'
+            },
+            {
+                src:'images/npar2.jpg',
+                caption: 'Sliding Door Wardrobe System'
+            },
+            {
+                src: 'images/npar5.jpg',
+                caption: 'Complete Interior Design'
+            }
+        ];
+
+        let currentSlide = 0;
+        let autoplayInterval = null;
+
+        // Change slide
+        function changeSlide(direction) {
+            currentSlide += direction;
+            
+            if (currentSlide >= galleryImages.length) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = galleryImages.length - 1;
+            }
+            
+            updateGallery();
+        }
+
+        // Select image from thumbnail
+        function selectImage(index) {
+            currentSlide = index;
+            updateGallery();
+            stopAutoplay();
+        }
+
+        // Update gallery display
+        function updateGallery() {
+            const mainImage = document.getElementById('mainImage');
+            const caption = document.getElementById('imageCaption');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Fade effect
+            mainImage.style.opacity = '0';
+            
+            setTimeout(() => {
+                mainImage.src = galleryImages[currentSlide].src;
+                caption.textContent = galleryImages[currentSlide].caption;
+                mainImage.style.opacity = '1';
+            }, 300);
+            
+            // Update active thumbnail
+            thumbnails.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Auto play
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayInterval = setInterval(() => {
+                changeSlide(1);
+            }, 3000);
+        }
+
+        function stopAutoplay() {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        }
+
+        // Fullscreen
+        function openFullscreen() {
+            const container = document.querySelector('.gallery-main-image');
+            if (container.requestFullscreen) {
+                container.requestFullscreen();
+            } else if (container.webkitRequestFullscreen) {
+                container.webkitRequestFullscreen();
+            } else if (container.msRequestFullscreen) {
+                container.msRequestFullscreen();
+            }
+        }
+
+        // Scroll to gallery
+        function scrollToGallery() {
+            document.querySelector('.gallery-section').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === 'Escape' && document.fullscreenElement) {
+                document.exitFullscreen();
+            }
+        });
+
+        // Stop autoplay when user interacts
+        document.querySelectorAll('.thumbnail, .slider-btn').forEach(element => {
+            element.addEventListener('click', stopAutoplay);
+        });
+    </script>
+</body>
+</html>
