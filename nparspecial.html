@@ -995,6 +995,32 @@
         document.querySelectorAll('.thumbnail, .slider-btn').forEach(element => {
             element.addEventListener('click', stopAutoplay);
         });
+        // Mobile Menu Toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const isClickInsideNav = event.target.closest('.nav-container');
+    if (!isClickInsideNav && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('active');
+    }
+});
+
     </script>
 </body>
 </html>
