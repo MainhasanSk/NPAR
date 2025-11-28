@@ -383,6 +383,63 @@
         html {
             scroll-behavior: smooth;
         }
+        @media (max-width: 768px) {
+    /* Duration Table - Card Style */
+    .duration-table {
+        display: block;
+    }
+
+    .duration-table thead {
+        display: none;
+    }
+
+    .duration-table tbody {
+        display: block;
+    }
+
+    .duration-table tr {
+        display: block;
+        background: var(--light-bg);
+        border-radius: 12px;
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+        border: 2px solid var(--light-bg);
+        transition: all 0.3s ease;
+    }
+
+    .duration-table tr:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 5px 20px rgba(255, 107, 107, 0.2);
+    }
+
+    .duration-table td {
+        display: block;
+        padding: 0.5rem 0;
+        border: none;
+        text-align: left;
+    }
+
+    .duration-table td:first-child {
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(255, 107, 107, 0.2);
+    }
+
+    .duration-table td:last-child {
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text-dark);
+    }
+
+    .duration-table td:last-child strong {
+        color: var(--primary-color);
+        font-size: 1.2rem;
+    }
+}
+
     </style>
     <link rel="stylesheet"href="navandfooter.css">
 </head>
