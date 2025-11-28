@@ -124,10 +124,16 @@ nav.scrolled {
 }
 
 .logo-image {
-    height: 70px;
+    /* height: 70px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease; */
+     height: 95px; /* Even larger */
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
+    margin: -15px 0; /* More negative margin */
+
 }
 
 .logo:hover .logo-image {
@@ -3207,7 +3213,8 @@ footer {
     }
     
     .logo-image {
-        height: 55px;
+        height: 65px; /* Slightly larger than current 55px */
+        margin: -8px 0;
     }
     
     .logo-text {
@@ -3252,7 +3259,8 @@ footer {
     }
     
     .logo-image {
-        height: 40px;
+        height: 60px;
+        margin: -6px 0;
     }
     
     .logo-text {
