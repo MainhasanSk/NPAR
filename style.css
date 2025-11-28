@@ -128,11 +128,11 @@ nav.scrolled {
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease; */
-     height: 95px; /* Even larger */
+     height: 115px; /* Even larger */
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
-    margin: -15px 0; /* More negative margin */
+    margin: -25px 0; /* More negative margin */
 
 }
 
@@ -3213,8 +3213,8 @@ footer {
     }
     
     .logo-image {
-        height: 65px; /* Slightly larger than current 55px */
-        margin: -8px 0;
+        height: 90px; /* Slightly larger than current 55px */
+        margin: -15px 0;
     }
     
     .logo-text {
@@ -3259,8 +3259,8 @@ footer {
     }
     
     .logo-image {
-        height: 60px;
-        margin: -6px 0;
+        height: 90px;
+        margin: -15px 0;
     }
     
     .logo-text {
